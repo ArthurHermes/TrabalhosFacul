@@ -1,7 +1,4 @@
-public class ContaCorrente extends ContaAbstrata{
-    private Double LimChequeEspecial; 
-
-
+public class Poupanca extends ContaAbstrata{
 
     public ContaAbstrata AbrirConta(Cliente c, String NumeroConta, Double SaldoInicial, String tipo){
         return null;
@@ -14,7 +11,7 @@ public class ContaCorrente extends ContaAbstrata{
     }
 
     public Double ObterLimite(){
-        return getSaldo() + LimChequeEspecial;
+        return getSaldo();
     }
     public void Depositar(Double valor){
 
@@ -22,5 +19,4 @@ public class ContaCorrente extends ContaAbstrata{
     public void Sacar(Double valor){
 
     }
-
 }
