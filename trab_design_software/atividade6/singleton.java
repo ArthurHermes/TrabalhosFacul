@@ -1,5 +1,5 @@
 package atividade6;
 
-public class singleton {
+public class Singleton {
     
 }
