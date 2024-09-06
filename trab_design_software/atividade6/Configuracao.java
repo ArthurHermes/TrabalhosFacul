@@ -36,7 +36,7 @@ public class Configuracao {
 
     @Override
     public String toString() {
-        return "Configuracao [ambiente=" + ambiente + ", porta=" + porta + "]";
+        return "Configuracao (ambiente=" + ambiente + ", porta=" + porta + ")";
     }
 
     
