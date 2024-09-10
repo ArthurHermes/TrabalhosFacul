@@ -1,3 +1,5 @@
+import java.util.NoSuchElementException;
+
 class Pilha<T> {
     private Node<T> topo;
 
@@ -7,6 +9,7 @@ class Pilha<T> {
 
         public Node(T valor) {
             this.valor = valor;
+            this.proximo = null; // Melhor prática para clareza
         }
     }
 
@@ -22,7 +25,7 @@ class Pilha<T> {
 
     public T desempilhar() {
         if (estaVazia()) {
-            throw new RuntimeException("Pilha vazia");
+            throw new NoSuchElementException("Pilha vazia");
         }
         T valor = topo.valor;
         topo = topo.proximo;
@@ -31,7 +34,7 @@ class Pilha<T> {
 
     public T topo() {
         if (estaVazia()) {
-            throw new RuntimeException("Pilha vazia");
+            throw new NoSuchElementException("Pilha vazia");
         }
         return topo.valor;
     }

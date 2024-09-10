@@ -1,3 +1,5 @@
+import java.util.NoSuchElementException;
+
 class Fila<T> {
     private Node<T> inicio, fim;
 
@@ -7,6 +9,7 @@ class Fila<T> {
 
         public Node(T valor) {
             this.valor = valor;
+            this.proximo = null; // Boa prática para explicitar o valor
         }
     }
 
@@ -27,7 +30,7 @@ class Fila<T> {
 
     public T desenfileirar() {
         if (estaVazia()) {
-            throw new RuntimeException("Fila vazia");
+            throw new NoSuchElementException("Fila vazia");
         }
         T valor = inicio.valor;
         inicio = inicio.proximo;
