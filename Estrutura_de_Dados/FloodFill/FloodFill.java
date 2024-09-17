@@ -6,12 +6,13 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Stack;
 import javax.imageio.ImageIO;
+import javax.swing.SwingUtilities;
 
 public class FloodFill {
     public static void main(String[] args) {
         int count = 0;
         int countName = 0;
-        File file = new File("Estrutura_de_Dados\\FloodFill\\riscomeio.png");
+        File file = new File("imagem.png");
         if (!file.exists()) {
             System.out.println("O arquivo não foi encontrado!");
             return;
@@ -40,8 +41,8 @@ public class FloodFill {
             Color boundaryColor = Color.BLACK;
 
             // Defina manualmente o ponto de início mais próximo da região desejada
-            int xStart = 294; // Ajuste o valor de acordo com a imagem
-            int yStart = 94; // Ajuste o valor de acordo com a imagem
+            int xStart = 370; // Ajuste o valor de acordo com a imagem
+            int yStart = 150; // Ajuste o valor de acordo com a imagem
 
             // Verifica se o ponto de início está dentro da imagem e na cor alvo
             if (xStart < 0 || xStart >= width || yStart < 0 || yStart >= height) {
@@ -58,8 +59,6 @@ public class FloodFill {
             // Algoritmo de preenchimento por flood fill usando pilha
             Stack<int[]> stack = new Stack<>();
             stack.push(new int[]{xStart, yStart});
-
-            
 
             while (!stack.isEmpty()) {
                 count++;
@@ -80,7 +79,6 @@ public class FloodFill {
                     // Define a cor rosa
                     newImage.setRGB(x, y, pink.getRGB());
 
-
                     // Adiciona os pixels adjacentes à pilha
                     stack.push(new int[]{x + 1, y});
                     stack.push(new int[]{x - 1, y});
@@ -88,18 +86,22 @@ public class FloodFill {
                     stack.push(new int[]{x, y - 1});
                 }
 
+                // Salvar a imagem a cada 1000 passos
                 if(count % 1000 == 0) {
-                    File output = new File("Estrutura_de_Dados\\FloodFill\\out/nome_" + countName + ".png");
+                    File output = new File("out/nome_" + countName + ".png");
                     ImageIO.write(newImage, "png", output);
                     countName++;
                 }
             }
 
-            // Salva a nova imagem alterada
-            
-            
+            // Salva a nova imagem alterada final
+            File output = new File("out/final_image.png");
+            ImageIO.write(newImage, "png", output);
 
-            System.out.println("Imagem processada e salva como 'quadrado_rosa_filled.png'.");
+            System.out.println("Imagem processada e salva como 'final_image.png'.");
+
+            // Iniciar a exibição das imagens geradas com Swing
+            startImageViewer();
 
         } catch (IOException e) {
             System.out.println("Erro ao ler ou salvar a imagem: " + e.getMessage());
@@ -109,9 +111,17 @@ public class FloodFill {
 
     // Função para comparar cores com uma tolerância
     private static boolean isColorSimilar(Color c1, Color c2) {
-        int tolerance = 30; // Aumentei a tolerância para tornar a comparação mais flexível
+        int tolerance = 30; // Tolerância para tornar a comparação mais flexível
         return Math.abs(c1.getRed() - c2.getRed()) < tolerance &&
                Math.abs(c1.getGreen() - c2.getGreen()) < tolerance &&
                Math.abs(c1.getBlue() - c2.getBlue()) < tolerance;
+    }
+
+    // Método para chamar a exibição das imagens
+    private static void startImageViewer() {
+        SwingUtilities.invokeLater(() -> {
+            FloodFillSwingViewer viewer = new FloodFillSwingViewer();
+            viewer.setVisible(true);
+        });
     }
 }
