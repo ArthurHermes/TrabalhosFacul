@@ -14,7 +14,7 @@ public class FloodFillSwingViewer extends JFrame {
 
     public FloodFillSwingViewer() {
         // Carregar todas as imagens salvas
-        loadImages("out");
+        loadImages("FloodFill\\out");
 
         // Configurar a janela
         setTitle("Flood Fill Image Viewer");
@@ -35,7 +35,7 @@ public class FloodFillSwingViewer extends JFrame {
         }
 
         // Configurar o Timer para alternar as imagens a cada 1 segundo (1000ms)
-        Timer timer = new Timer(1000, e -> {
+        Timer timer = new Timer(100, e -> {
             currentImageIndex = (currentImageIndex + 1) % images.size();
             imageLabel.setIcon(images.get(currentImageIndex));
         });
