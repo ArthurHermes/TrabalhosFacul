@@ -11,7 +11,7 @@ public class FloodFill {
     public static void main(String[] args) {
         int count = 0;
         int countName = 0;
-        File file = new File("imagem.png");
+        File file = new File("Estrutura_de_Dados\\FloodFill\\riscomeio.png");
         if (!file.exists()) {
             System.out.println("O arquivo não foi encontrado!");
             return;
@@ -40,8 +40,8 @@ public class FloodFill {
             Color boundaryColor = Color.BLACK;
 
             // Defina manualmente o ponto de início mais próximo da região desejada
-            int xStart = 370; // Ajuste o valor de acordo com a imagem
-            int yStart = 150; // Ajuste o valor de acordo com a imagem
+            int xStart = 294; // Ajuste o valor de acordo com a imagem
+            int yStart = 94; // Ajuste o valor de acordo com a imagem
 
             // Verifica se o ponto de início está dentro da imagem e na cor alvo
             if (xStart < 0 || xStart >= width || yStart < 0 || yStart >= height) {
@@ -89,7 +89,7 @@ public class FloodFill {
                 }
 
                 if(count % 1000 == 0) {
-                    File output = new File("out/nome_" + countName + ".png");
+                    File output = new File("Estrutura_de_Dados\\FloodFill\\out/nome_" + countName + ".png");
                     ImageIO.write(newImage, "png", output);
                     countName++;
                 }
