@@ -41,8 +41,8 @@ public class FloodFill {
             Color boundaryColor = Color.BLACK;
 
             // Defina manualmente o ponto de início mais próximo da região desejada
-            int xStart = 267; // Ajuste o valor de acordo com a imagem
-            int yStart = 68; // Ajuste o valor de acordo com a imagem
+            int xStart = 300; // Ajuste o valor de acordo com a imagem
+            int yStart = 100; // Ajuste o valor de acordo com a imagem
 
             // Verifica se o ponto de início está dentro da imagem e na cor alvo
             if (xStart < 0 || xStart >= width || yStart < 0 || yStart >= height) {
@@ -58,7 +58,7 @@ public class FloodFill {
 
             // Algoritmo de preenchimento por flood fill usando fila
             Queue<int[]> queue = new LinkedList<>();
-            queue.add(new int[]{xStart, yStart});
+            queue.offer(new int[]{xStart, yStart});
 
             while (!queue.isEmpty()) {
                 count++;
@@ -80,10 +80,10 @@ public class FloodFill {
                     newImage.setRGB(x, y, pink.getRGB());
 
                     // Adiciona os pixels adjacentes à fila
-                    queue.add(new int[]{x + 1, y});
-                    queue.add(new int[]{x - 1, y});
-                    queue.add(new int[]{x, y + 1});
-                    queue.add(new int[]{x, y - 1});
+                    queue.offer(new int[]{x + 1, y});
+                    queue.offer(new int[]{x - 1, y});
+                    queue.offer(new int[]{x, y + 1});
+                    queue.offer(new int[]{x, y - 1});
                 }
 
                 if(count % 1000 == 0) {
@@ -94,8 +94,9 @@ public class FloodFill {
             }
 
             // Salva a nova imagem alterada
-            File outputFile = new File("Estrutura_de_Dados\\FloodFillFila\\quadrado_rosa_filled.png");
+            File outputFile = new File("Estrutura_de_Dados\\FloodFillFila\\out/quadrado_rosa_filled.png");
             ImageIO.write(newImage, "png", outputFile);
+
             System.out.println("Imagem processada e salva como 'quadrado_rosa_filled.png'.");
 
         } catch (IOException e) {
