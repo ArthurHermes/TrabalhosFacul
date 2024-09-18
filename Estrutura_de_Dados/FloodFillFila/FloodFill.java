@@ -4,7 +4,8 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.Stack;
+import java.util.LinkedList;
+import java.util.Queue;
 import javax.imageio.ImageIO;
 
 public class FloodFill {
@@ -55,15 +56,13 @@ public class FloodFill {
                 return;
             }
 
-            // Algoritmo de preenchimento por flood fill usando pilha
-            Stack<int[]> stack = new Stack<>();
-            stack.push(new int[]{xStart, yStart});
+            // Algoritmo de preenchimento por flood fill usando fila
+            Queue<int[]> queue = new LinkedList<>();
+            queue.add(new int[]{xStart, yStart});
 
-            
-
-            while (!stack.isEmpty()) {
+            while (!queue.isEmpty()) {
                 count++;
-                int[] point = stack.pop();
+                int[] point = queue.poll();
                 int x = point[0];
                 int y = point[1];
 
@@ -80,12 +79,11 @@ public class FloodFill {
                     // Define a cor rosa
                     newImage.setRGB(x, y, pink.getRGB());
 
-
-                    // Adiciona os pixels adjacentes à pilha
-                    stack.push(new int[]{x + 1, y});
-                    stack.push(new int[]{x - 1, y});
-                    stack.push(new int[]{x, y + 1});
-                    stack.push(new int[]{x, y - 1});
+                    // Adiciona os pixels adjacentes à fila
+                    queue.add(new int[]{x + 1, y});
+                    queue.add(new int[]{x - 1, y});
+                    queue.add(new int[]{x, y + 1});
+                    queue.add(new int[]{x, y - 1});
                 }
 
                 if(count % 1000 == 0) {
@@ -96,9 +94,8 @@ public class FloodFill {
             }
 
             // Salva a nova imagem alterada
-            
-            
-
+            File outputFile = new File("Estrutura_de_Dados\\FloodFillFila\\quadrado_rosa_filled.png");
+            ImageIO.write(newImage, "png", outputFile);
             System.out.println("Imagem processada e salva como 'quadrado_rosa_filled.png'.");
 
         } catch (IOException e) {
