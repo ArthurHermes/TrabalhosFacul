@@ -12,7 +12,7 @@ public class FloodFill {
     public static void main(String[] args) {
         int count = 0;
         int countName = 0;
-        File file = new File("Estrutura_de_Dados\\FloodFillFila\\riscomeio.png");
+        File file = new File("Estrutura_de_Dados\\FloodFillFila\\FloodFillFila\\riscomeio.png");
         if (!file.exists()) {
             System.out.println("O arquivo não foi encontrado!");
             return;

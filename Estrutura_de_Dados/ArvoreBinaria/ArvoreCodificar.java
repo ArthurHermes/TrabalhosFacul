@@ -1,3 +1,5 @@
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 class TreeNode {
@@ -17,9 +19,11 @@ class TreeNode {
 
 class MorseCodeTree {
     private TreeNode root;
+    private Map<Character, String> morseCodeMap;  // Mapeamento de letras para código Morse
 
     public MorseCodeTree() {
         root = new TreeNode();
+        morseCodeMap = new HashMap<>();
         buildTree();
     }
 
@@ -29,11 +33,14 @@ class MorseCodeTree {
             {"G", "--."}, {"H", "...."}, {"I", ".."}, {"J", ".---"}, {"K", "-.-"}, {"L", ".-.."},
             {"M", "--"}, {"N", "-."}, {"O", "---"}, {"P", ".--."}, {"Q", "--.-"}, {"R", ".-."},
             {"S", "..."}, {"T", "-"}, {"U", "..-"}, {"V", "...-"}, {"W", ".--"}, {"X", "-..-"},
-            {"Y", "-.--"}, {"Z", "--.."}
+            {"Y", "-.--"}, {"Z", "--.."}, {"1", ".----"}, {"2", "..---"}, {"3", "...--"}, 
+            {"4", "....-"}, {"5", "....."}, {"6", "-...."}, {"7", "--..."}, {"8", "---.."}, 
+            {"9", "----."}, {"0", "-----"}
         };
 
         for (String[] entry : morseCode) {
             insert(entry[0].charAt(0), entry[1]);
+            morseCodeMap.put(entry[0].charAt(0), entry[1]);  // Preenche o mapa para codificação
         }
     }
 
@@ -71,19 +78,18 @@ class MorseCodeTree {
         return String.valueOf(current.value);
     }
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        MorseCodeTree tree = new MorseCodeTree();
-        String palavra = sc.nextLine();
-        String[] morseCodes = palavra.split(" ");
-        StringBuilder decodedMessage = new StringBuilder();
-
-        for (String code : morseCodes) {
-            decodedMessage.append(tree.decode(code));
+    // Método para codificar texto em Morse
+    public String encode(String message) {
+        StringBuilder morseMessage = new StringBuilder();
+        for (char letter : message.toUpperCase().toCharArray()) {
+            if (morseCodeMap.containsKey(letter)) {
+                morseMessage.append(morseCodeMap.get(letter)).append(" ");
+            } else if (letter == ' ') {
+                morseMessage.append("   ");  // Adiciona três espaços entre palavras
+            }
         }
-
-        System.out.println(decodedMessage.toString());
-
-        sc.close();
+        return morseMessage.toString().trim();
     }
+
+    
 }

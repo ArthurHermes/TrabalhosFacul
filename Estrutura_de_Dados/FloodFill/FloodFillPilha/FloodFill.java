@@ -11,7 +11,7 @@ public class FloodFill {
     public static void main(String[] args) {
         int count = 0;
         int countName = 0;
-        File file = new File("Estrutura_de_Dados\\FloodFill\\riscomeio.png");
+        File file = new File("Estrutura_de_Dados\\FloodFill\\FloodFillPilha\\riscomeio.png");
         if (!file.exists()) {
             System.out.println("O arquivo não foi encontrado!");
             return;
@@ -89,7 +89,7 @@ public class FloodFill {
                 }
 
                 if(count % 1000 == 0) {
-                    File output = new File("Estrutura_de_Dados\\FloodFill\\out/nome_" + countName + ".png");
+                    File output = new File("Estrutura_de_Dados\\FloodFill\\FloodFillPilha\\out/nome_" + countName + ".png");
                     ImageIO.write(newImage, "png", output);
                     countName++;
                 }
