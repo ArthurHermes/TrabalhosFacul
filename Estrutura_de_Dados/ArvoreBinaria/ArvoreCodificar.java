@@ -1,6 +1,5 @@
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
 class TreeNode {
     char value;
@@ -89,7 +88,5 @@ class MorseCodeTree {
             }
         }
         return morseMessage.toString().trim();
-    }
-
-    
+    }    
 }
