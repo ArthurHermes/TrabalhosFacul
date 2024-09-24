@@ -1,17 +1,18 @@
-package FloodFill;
+package FloodFill.FloodFillFila;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.Stack;
+import java.util.LinkedList;
+import java.util.Queue;
 import javax.imageio.ImageIO;
 
 public class FloodFill {
     public static void main(String[] args) {
         int count = 0;
         int countName = 0;
-        File file = new File("Estrutura_de_Dados\\FloodFill\\riscomeio.png");
+        File file = new File("Estrutura_de_Dados\\FloodFillFila\\riscomeio.png");
         if (!file.exists()) {
             System.out.println("O arquivo não foi encontrado!");
             return;
@@ -40,8 +41,8 @@ public class FloodFill {
             Color boundaryColor = Color.BLACK;
 
             // Defina manualmente o ponto de início mais próximo da região desejada
-            int xStart = 294; // Ajuste o valor de acordo com a imagem
-            int yStart = 94; // Ajuste o valor de acordo com a imagem
+            int xStart = 300; // Ajuste o valor de acordo com a imagem
+            int yStart = 100; // Ajuste o valor de acordo com a imagem
 
             // Verifica se o ponto de início está dentro da imagem e na cor alvo
             if (xStart < 0 || xStart >= width || yStart < 0 || yStart >= height) {
@@ -55,15 +56,13 @@ public class FloodFill {
                 return;
             }
 
-            // Algoritmo de preenchimento por flood fill usando pilha
-            Stack<int[]> stack = new Stack<>();
-            stack.push(new int[]{xStart, yStart});
+            // Algoritmo de preenchimento por flood fill usando fila
+            Queue<int[]> queue = new LinkedList<>();
+            queue.offer(new int[]{xStart, yStart});
 
-            
-
-            while (!stack.isEmpty()) {
+            while (!queue.isEmpty()) {
                 count++;
-                int[] point = stack.pop();
+                int[] point = queue.poll();
                 int x = point[0];
                 int y = point[1];
 
@@ -80,24 +79,23 @@ public class FloodFill {
                     // Define a cor rosa
                     newImage.setRGB(x, y, pink.getRGB());
 
-
-                    // Adiciona os pixels adjacentes à pilha
-                    stack.push(new int[]{x + 1, y});
-                    stack.push(new int[]{x - 1, y});
-                    stack.push(new int[]{x, y + 1});
-                    stack.push(new int[]{x, y - 1});
+                    // Adiciona os pixels adjacentes à fila
+                    queue.offer(new int[]{x + 1, y});
+                    queue.offer(new int[]{x - 1, y});
+                    queue.offer(new int[]{x, y + 1});
+                    queue.offer(new int[]{x, y - 1});
                 }
 
                 if(count % 1000 == 0) {
-                    File output = new File("Estrutura_de_Dados\\FloodFill\\out/nome_" + countName + ".png");
+                    File output = new File("Estrutura_de_Dados\\FloodFillFila\\out/nome_" + countName + ".png");
                     ImageIO.write(newImage, "png", output);
                     countName++;
                 }
             }
 
             // Salva a nova imagem alterada
-            
-            
+            File outputFile = new File("Estrutura_de_Dados\\FloodFillFila\\out/quadrado_rosa_filled.png");
+            ImageIO.write(newImage, "png", outputFile);
 
             System.out.println("Imagem processada e salva como 'quadrado_rosa_filled.png'.");
 
