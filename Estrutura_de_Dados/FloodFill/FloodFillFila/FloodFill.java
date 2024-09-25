@@ -12,7 +12,7 @@ public class FloodFill {
     public static void main(String[] args) {
         int count = 0;
         int countName = 0;
-        File file = new File("Estrutura_de_Dados\\FloodFillFila\\FloodFillFila\\riscomeio.png");
+        File file = new File("Estrutura_de_Dados\\FloodFill\\FloodFillFila\\riscomeio.png");
         if (!file.exists()) {
             System.out.println("O arquivo não foi encontrado!");
             return;
@@ -73,17 +73,17 @@ public class FloodFill {
                     queue.offer(new int[]{x, y - 1});
                 }
 
-                if(count % 1000 == 0) {
-                    File output = new File("Estrutura_de_Dados\\FloodFillFila\\out/nome_" + countName + ".png");
+                if(count % 500 == 0) {
+                    File output = new File("Estrutura_de_Dados\\FloodFill\\FloodFillFila\\out/" + countName + ".png");
                     ImageIO.write(newImage, "png", output);
                     countName++;
                 }
             }
 
-            File outputFile = new File("Estrutura_de_Dados\\FloodFillFila\\out/quadrado_rosa_filled.png");
+            File outputFile = new File("Estrutura_de_Dados\\FloodFill\\FloodFillFila\\out/quadrado_rosa_filled.png");
             ImageIO.write(newImage, "png", outputFile);
 
-            System.out.println("Imagem processada e salva como 'quadrado_rosa_filled.png'.");
+            System.out.println("Imagem processada e salva.");
 
         } catch (IOException e) {
             System.out.println("Erro ao ler ou salvar a imagem: " + e.getMessage());
