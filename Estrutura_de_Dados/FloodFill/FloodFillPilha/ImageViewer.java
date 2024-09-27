@@ -39,7 +39,7 @@ public class ImageViewer extends JFrame {
                 e.printStackTrace();
             }
         } else {
-            System.exit(0); 
+            System.out.println("Imagem exibida com sucesso!");
         }
     }
 

@@ -12,7 +12,7 @@ public class FloodFill {
     public static void main(String[] args) {
         int count = 0;
         int countName = 0;
-        File file = new File("Estrutura_de_Dados\\FloodFill\\FloodFillFila\\riscomeio.png");
+        File file = new File("Estrutura_de_Dados\\FloodFill\\FloodFillFila\\Marina.png");
         if (!file.exists()) {
             System.out.println("O arquivo não foi encontrado!");
             return;
@@ -35,8 +35,8 @@ public class FloodFill {
             Color targetColor = Color.WHITE;
             Color boundaryColor = Color.BLACK;
 
-            int xStart = 300; 
-            int yStart = 100; 
+            int xStart = 268; 
+            int yStart = 69; 
 
             if (xStart < 0 || xStart >= width || yStart < 0 || yStart >= height) {
                 System.out.println("Ponto de início fora dos limites da imagem.");
@@ -51,6 +51,12 @@ public class FloodFill {
 
             Queue<int[]> queue = new LinkedList<>();
             queue.offer(new int[]{xStart, yStart});
+
+            // Verifica e cria a pasta "out" se não existir
+            File outDir = new File("Estrutura_de_Dados\\FloodFill\\FloodFillFila\\out");
+            if (!outDir.exists()) {
+                outDir.mkdirs(); // Cria a pasta se ela não existir
+            }
 
             while (!queue.isEmpty()) {
                 count++;
@@ -73,7 +79,7 @@ public class FloodFill {
                     queue.offer(new int[]{x, y - 1});
                 }
 
-                if(count % 500 == 0) {
+                if (count % 500 == 0) {
                     File output = new File("Estrutura_de_Dados\\FloodFill\\FloodFillFila\\out/" + countName + ".png");
                     ImageIO.write(newImage, "png", output);
                     countName++;

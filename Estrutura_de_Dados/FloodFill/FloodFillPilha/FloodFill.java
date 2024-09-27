@@ -11,7 +11,7 @@ public class FloodFill {
     public static void main(String[] args) {
         int count = 0;
         int countName = 0;
-        File file = new File("Estrutura_de_Dados\\FloodFill\\FloodFillPilha\\imagem.png");
+        File file = new File("Estrutura_de_Dados\\FloodFill\\FloodFillPilha\\Marina.png");
         if (!file.exists()) {
             System.out.println("O arquivo não foi encontrado!");
             return;
@@ -34,8 +34,8 @@ public class FloodFill {
             Color targetColor = Color.WHITE;
             Color boundaryColor = Color.BLACK;
 
-            int xStart = 294; 
-            int yStart = 94;
+            int xStart = 268;
+            int yStart = 69;
 
             if (xStart < 0 || xStart >= width || yStart < 0 || yStart >= height) {
                 System.out.println("Ponto de início fora dos limites da imagem.");
@@ -46,6 +46,12 @@ public class FloodFill {
             if (!isColorSimilar(startColor, targetColor)) {
                 System.out.println("O ponto de início não é da cor alvo.");
                 return;
+            }
+
+            // Cria a pasta "out" caso ela não exista
+            File outDir = new File("Estrutura_de_Dados\\FloodFill\\FloodFillPilha\\out");
+            if (!outDir.exists()) {
+                outDir.mkdirs(); // Cria a pasta automaticamente
             }
 
             Stack<int[]> stack = new Stack<>();
@@ -72,12 +78,13 @@ public class FloodFill {
                     stack.push(new int[]{x, y - 1});
                 }
 
-                if(count % 250 == 0) {
+                if (count % 250 == 0) {
                     File output = new File("Estrutura_de_Dados\\FloodFill\\FloodFillPilha\\out/" + countName + ".png");
                     ImageIO.write(newImage, "png", output);
                     countName++;
                 }
             }
+
             System.out.println("Imagem processada e salva como 'quadrado_rosa_filled.png'.");
         } catch (IOException e) {
             System.out.println("Erro ao ler ou salvar a imagem: " + e.getMessage());

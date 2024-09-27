@@ -11,7 +11,7 @@ import java.awt.image.BufferedImage;
 public class FloodFillAnimation extends JFrame {
     private int currentImageIndex = 0;
     private final File[] imageFiles;
-    private final String nomeImagemQuadradoRosa = "quadrado_rosa.png"; // Substitua pelo nome correto
+    private final String nomeImagemQuadradoRosa = "quadrado_rosa.png"; 
 
     public FloodFillAnimation(File[] imageFiles) {
         this.imageFiles = imageFiles;
@@ -33,10 +33,9 @@ public class FloodFillAnimation extends JFrame {
                 revalidate();
                 repaint();
 
-                // Verifica se a imagem atual é o quadrado rosa
                 if (imageFiles[currentImageIndex].getName().equals(nomeImagemQuadradoRosa)) {
                     System.out.println("Animação parada na imagem do quadrado rosa.");
-                    return; // Para a animação se a imagem for o quadrado rosa
+                    return; 
                 }
 
                 currentImageIndex++;
@@ -48,7 +47,7 @@ public class FloodFillAnimation extends JFrame {
                 e.printStackTrace();
             }
         } else {
-            System.exit(0); 
+            System.out.println("Animação concluída.");
         }
     }
 
@@ -68,7 +67,7 @@ public class FloodFillAnimation extends JFrame {
         String fileName = file.getName();
         String numberPart = fileName.replaceAll("\\D+", ""); 
         if (numberPart.isEmpty()) {
-            return Integer.MAX_VALUE; // Coloca imagens sem número no final da lista
+            return Integer.MAX_VALUE; 
         }
         return Integer.parseInt(numberPart); 
     }
