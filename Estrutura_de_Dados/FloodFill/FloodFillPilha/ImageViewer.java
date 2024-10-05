@@ -17,7 +17,6 @@ public class ImageViewer extends JFrame {
         setTitle("Image Sequence");
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new BorderLayout());
         setVisible(true);
         showNextImage();
     }
@@ -36,10 +35,11 @@ public class ImageViewer extends JFrame {
                 timer.setRepeats(false);
                 timer.start();
             } catch (Exception e) {
+                System.err.println("Erro ao carregar a imagem: " + imageFiles[currentImageIndex]);
                 e.printStackTrace();
             }
         } else {
-            System.out.println("Imagem exibida com sucesso!");
+            System.out.println("Todas as imagens foram exibidas com sucesso!");
         }
     }
 
@@ -51,13 +51,13 @@ public class ImageViewer extends JFrame {
             Arrays.sort(imageFiles, Comparator.comparingInt(ImageViewer::extractNumberFromFileName));
             new ImageViewer(imageFiles);
         } else {
-            System.out.println("No images found.");
+            System.out.println("Nenhuma imagem encontrada.");
         }
     }
 
     private static int extractNumberFromFileName(File file) {
         String fileName = file.getName();
         String numberPart = fileName.replaceAll("\\D+", ""); 
-        return Integer.parseInt(numberPart); 
+        return numberPart.isEmpty() ? Integer.MAX_VALUE : Integer.parseInt(numberPart);
     }
 }
