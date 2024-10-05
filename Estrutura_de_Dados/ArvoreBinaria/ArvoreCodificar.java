@@ -12,13 +12,13 @@ class TreeNode {
     }
 
     TreeNode() {
-        this('\0');  // Valor nulo para os nós internos sem caracteres
+        this('\0');  
     }
 }
 
 class MorseCodeTree {
     private TreeNode root;
-    private Map<Character, String> morseCodeMap;  // Mapeamento de letras para código Morse
+    private Map<Character, String> morseCodeMap; 
 
     public MorseCodeTree() {
         root = new TreeNode();
@@ -39,7 +39,7 @@ class MorseCodeTree {
 
         for (String[] entry : morseCode) {
             insert(entry[0].charAt(0), entry[1]);
-            morseCodeMap.put(entry[0].charAt(0), entry[1]);  // Preenche o mapa para codificação
+            morseCodeMap.put(entry[0].charAt(0), entry[1]);  
         }
     }
 
@@ -77,14 +77,14 @@ class MorseCodeTree {
         return String.valueOf(current.value);
     }
 
-    // Método para codificar texto em Morse
+
     public String encode(String message) {
         StringBuilder morseMessage = new StringBuilder();
         for (char letter : message.toUpperCase().toCharArray()) {
             if (morseCodeMap.containsKey(letter)) {
                 morseMessage.append(morseCodeMap.get(letter)).append(" ");
             } else if (letter == ' ') {
-                morseMessage.append("   ");  // Adiciona três espaços entre palavras
+                morseMessage.append("   "); 
             }
         }
         return morseMessage.toString().trim();

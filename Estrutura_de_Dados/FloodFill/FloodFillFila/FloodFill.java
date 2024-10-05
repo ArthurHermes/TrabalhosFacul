@@ -52,10 +52,10 @@ public class FloodFill {
             Queue<int[]> queue = new LinkedList<>();
             queue.offer(new int[]{xStart, yStart});
 
-            // Verifica e cria a pasta "out" se não existir
+         
             File outDir = new File("Estrutura_de_Dados\\FloodFill\\FloodFillFila\\out");
             if (!outDir.exists()) {
-                outDir.mkdirs(); // Cria a pasta se ela não existir
+                outDir.mkdirs(); 
             }
 
             while (!queue.isEmpty()) {

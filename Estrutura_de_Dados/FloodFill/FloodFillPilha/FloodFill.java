@@ -48,10 +48,9 @@ public class FloodFill {
                 return;
             }
 
-            // Cria a pasta "out" caso ela não exista
             File outDir = new File("Estrutura_de_Dados\\FloodFill\\FloodFillPilha\\out");
             if (!outDir.exists()) {
-                outDir.mkdirs(); // Cria a pasta automaticamente
+                outDir.mkdirs(); 
             }
 
             Stack<int[]> stack = new Stack<>();

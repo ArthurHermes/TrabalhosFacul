@@ -11,7 +11,7 @@ class TreeNode {
     }
 
     TreeNode() {
-        this('\0');  // Valor nulo para os nós internos sem caracteres
+        this('\0');  
     }
 }
 

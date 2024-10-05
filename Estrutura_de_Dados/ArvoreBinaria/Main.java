@@ -9,20 +9,19 @@ public class Main {
         System.out.println("1. Decodificar código Morse");
         System.out.println("2. Codificar texto para código Morse");
         int opcao = sc.nextInt();
-        sc.nextLine();  // Consumir a nova linha após o número
-
+        sc.nextLine();  
         if (opcao == 1) {
             System.out.println("Insira a mensagem em código Morse (separada por espaços, três espaços entre palavras):");
             String input = sc.nextLine();
-            String[] morseWords = input.split("   ");  // Três espaços entre palavras
+            String[] morseWords = input.split("   ");  
             StringBuilder decodedMessage = new StringBuilder();
 
             for (String morseWord : morseWords) {
-                String[] morseLetters = morseWord.split(" ");  // Um espaço entre letras
+                String[] morseLetters = morseWord.split(" ");  
                 for (String code : morseLetters) {
                     decodedMessage.append(tree.decode(code));
                 }
-                decodedMessage.append(' ');  // Adiciona espaço entre palavras
+                decodedMessage.append(' ');  
             }
 
             System.out.println("Mensagem decodificada: " + decodedMessage.toString().trim());
