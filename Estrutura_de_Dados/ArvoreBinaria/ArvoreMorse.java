@@ -13,26 +13,25 @@ class No {
 
 public class ArvoreMorse {
     No raiz;
-    Map<Character, String> morseMap; // Mapeamento de letras para código Morse
+    Map<Character, String> morseMap; 
 
     public ArvoreMorse() {
-        raiz = new No(' '); // Nodo raiz vazio
+        raiz = new No(' '); 
         morseMap = new HashMap<>();
         construirArvore();
     }
 
-    // Inserir um caractere na árvore com base no código Morse
     void inserir(char letra, String codigoMorse) {
         raiz = inserirRecursivo(raiz, letra, codigoMorse, 0);
     }
 
     No inserirRecursivo(No raiz, char letra, String codigoMorse, int posicao) {
         if (raiz == null) {
-            raiz = new No(' '); // Cria um nodo vazio
+            raiz = new No(' '); 
         }
 
         if (posicao == codigoMorse.length()) {
-            raiz.valor = letra; // Atribui o caractere no local correto
+            raiz.valor = letra; 
         } else {
             if (codigoMorse.charAt(posicao) == '.') {
                 raiz.esquerdo = inserirRecursivo(raiz.esquerdo, letra, codigoMorse, posicao + 1);
@@ -44,10 +43,10 @@ public class ArvoreMorse {
         return raiz;
     }
 
-    // Função para decodificar uma sequência de código Morse
+
     String decodificar(String codigo) {
         StringBuilder resultado = new StringBuilder();
-        String[] caracteres = codigo.split(" "); // Separando por espaços para cada letra
+        String[] caracteres = codigo.split(" ");
 
         for (String c : caracteres) {
             resultado.append(decodificarRecursivo(raiz, c, 0));
@@ -58,10 +57,10 @@ public class ArvoreMorse {
 
     char decodificarRecursivo(No raiz, String codigoMorse, int posicao) {
         if (raiz == null) {
-            return ' '; // Caso de erro, caractere não encontrado
+            return ' '; 
         }
         if (posicao == codigoMorse.length()) {
-            return raiz.valor; // Retorna o caractere na posição
+            return raiz.valor; 
         }
 
         if (codigoMorse.charAt(posicao) == '.') {
@@ -71,18 +70,19 @@ public class ArvoreMorse {
         }
     }
 
-    // Função para imprimir a árvore (preorder traversal)
+
     void imprimirArvore(No raiz, String codigo) {
         if (raiz != null) {
             if (raiz.valor != ' ') {
                 System.out.println(raiz.valor + " -> " + codigo);
             }
+
             imprimirArvore(raiz.esquerdo, codigo + ".");
             imprimirArvore(raiz.direito, codigo + "-");
         }
     }
 
-    // Construir a árvore com base no código Morse
+
     void construirArvore() {
         inserir('A', ".-");
         inserir('B', "-...");
@@ -110,7 +110,7 @@ public class ArvoreMorse {
         inserir('X', "-..-");
         inserir('Y', "-.--");
         inserir('Z', "--..");
-        // Adicione números ou outros símbolos se necessário
+        
     }
 
 }
