@@ -1,0 +1,104 @@
+@charset "UTF-8";
+
+:root {
+    --dark-gray: #222831;
+    --gray: #393E46;
+    --dark-tifanny: #00ADB5;
+    --tifanny: #00FFF5;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    color: white;
+}
+
+body {
+    background-color: var(--dark-gray);
+}
+
+header {
+    background-color: var(--dark-tifanny);
+    height: 500px;
+    text-align: center;
+    align-content: center;
+}
+
+header > h1{
+    font-size: 2.5em;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background-color: var(--dark-tifanny);
+    padding-top: 500px;
+}
+
+nav > ul > li {
+    list-style-type: none;
+    padding: 20px;
+}
+
+section#principal {
+    margin-left: 220px; /* Adiciona margem para evitar sobreposição com a barra de navegação */
+    display: flex;
+    justify-content: center;
+}
+
+section#central {
+    display: block;
+    width: 800px;
+    text-align: center;
+}
+
+section > h1 {
+    margin: 20px;
+}
+
+
+footer{
+    text-align: center;
+    position: absolute;
+    top: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+.typewriter {
+    font-family: monospace;
+    font-size: 24px;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid white; /* Simula o cursor */
+    width: 28ch; /* Número de caracteres visíveis */
+    color: white;
+    margin: auto;
+    animation: typing 3.5s steps(24), blink 0.75s step-end infinite; /* Passo de animação */
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 24ch; /* Mesmo valor que o width da .typewriter */
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent; /* Faz o cursor piscar */
+    }
+}
