@@ -14,3 +14,9 @@ Caso de teste 01 - Realizar login
     Digitar no campo usuário o usuário "rafael"
     Digitar no campo senha a senha do usuário ativo "123456"
     Adicionar o botão entrar e Verificar se o nome do usuário aparece na tela de boas vindas
+
+Caso de teste 02 - Realizar login com usuário inativo
+    Acessar a pagina home do site
+    Digitar no campo usuário o usuário "Paulo"
+    Digitar no campo senha a senha do usuário inativo "111111"
+    Acionar o botão entrar e Verificar mensagem de falha no login
