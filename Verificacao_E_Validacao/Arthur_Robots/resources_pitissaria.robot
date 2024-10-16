@@ -126,4 +126,8 @@ Realizar o cadastro de um novo usuario
     Sleep    1s
     Take Screenshot
 
+
+# Caso de teste 03
+
+
     
