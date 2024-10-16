@@ -5,17 +5,28 @@ Library    Process
 
 
 *** Variables ***
+
+# Variaveis padrão
 ${BROWSER}    chrome
 ${URL_GOOGLE}    https://www.google.com.br/
+
+# Informações do nosso site
 ${URL}    http://127.0.0.1/Pitissaria/paginas/
 ${TITULO}    Pitissaria
+
+# Caso de teste 01/03 Informações de login corretas
 ${USER}    gerente1
 ${PSSWD}    123
+
+# Caso de teste 01 - Cadastro de ingrediente sem valor
 ${NOME_INGREDIENTE}    Uva
 ${DATA_VALIDADE}    31/01/2005
 ${DATA_ENTRADA}    10/10/2024
 ${QUANTIDADE_KG}    5
+${PRECO}    nome:preco
 
+
+# Caso de teste 02 - Realizar cadastro de usuario sem cpf
 ${NOME}    Adao
 ${USERNAME}    Adao01
 ${EMAIL}    adao01@gmail.com
@@ -23,8 +34,13 @@ ${PASSWORD}    Teste@123456
 ${DATA_NASCIMENTO}    13/03/2005
 ${TELEFONE}    41995664344
 ${CEP}    81940210
-${NUMERO_CASA}    592, casa 30
+${NUMERO_CASA}    592
+${CPF}    name:cpf
 
+
+# Caso de teste 03 - Informações de login com a senha errada
+${PSSWD_ERRADA}    gerente123
+${CAMPO_SENHA}    name:senha
 
 *** Keywords ***
 Abrir o navegador
@@ -74,12 +90,19 @@ Inserir no campo de quantidade em KG "5"
 Realizar o cadastro de um novo ingrediente
     Click Button    id:btn-enviar
     Sleep    2s
-    Take Screenshot
 
+Capturar tela quando preco vazio 
+    [Arguments]    ${PRECO}
+    ${valor_campo}    Get Value    ${PRECO}
+    Log    Valor do campo VALOR: ${valor_campo}
+    Run Keyword If    '${valor_campo}' == ''    Capture Page Screenshot    preco_vazio.png
+    Run Keyword If    '${valor_campo}' == ''    Log    O campo VALOR não foi preenchido!
 
-
+# 
+# 
+# 
+# 
 # Caso de teste 02
-
 Selecionar a opcao de cadastro
     Sleep    1s
     Click Element    xpath=//a[@href='cadastro.php']
@@ -124,10 +147,31 @@ Realizar o cadastro de um novo usuario
     Sleep    1s
     Click Button    id:btn-enviar
     Sleep    1s
-    Take Screenshot
 
 
+Capturar tela quando campo cpf esta vazio
+    [Arguments]    ${CPF}
+    ${valor_campo}    Get Value    ${CPF}
+    Log    Valor do campo CPF: ${valor_campo}
+    Run Keyword If    '${valor_campo}' == ''    Capture Page Screenshot    campo_cpf_vazio.png
+    Run Keyword If    '${valor_campo}' == ''    Log    O campo CPF não foi preenchido!
+
+# 
+# 
+# 
+# 
 # Caso de teste 03
 
+# Selecionar a opção de login esta localizado no caso de teste 01(Reutilizei para não ficar recriando a mesma linha de codigo)
 
-    
+# Digitar no campo usuario está localizado no caso de teste 01(Reutilizei para não ficar recriando a mesma linha de codigo)
+Digitar no campo senha "gerente123"
+    Input Password    name:senha    ${PSSWD_ERRADA}
+    Click Button    id:btn-enviar
+    Sleep    2s
+
+Capturar tela quando senha estar errada
+    [Arguments]    ${PSSWD_ERRADA}
+    ${valor_campo}    Get Value    ${CAMPO_SENHA}
+    Run Keyword If    '${valor_campo}' == ''    Take Screenshot    campo_senha_incorreta
+    Run Keyword If    '${valor_campo}' == ''    Log    Senha incorreta

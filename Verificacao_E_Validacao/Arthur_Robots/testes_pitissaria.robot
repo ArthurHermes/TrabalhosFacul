@@ -19,6 +19,7 @@ Caso de teste 01 - Realizar cadastro de ingrediente sem preco
     Inserir no campo data de entrada "10/10/2024"
     Inserir no campo de quantidade em KG "5"
     Realizar o cadastro de um novo ingrediente
+    Capturar tela quando preco vazio    preco
 
 Caso de teste 02 - Realizar cadastro de usuario sem cpf
     [Documentation]    Este verifica se é possivel realizar o cadastro sem um cpf
@@ -35,3 +36,13 @@ Caso de teste 02 - Realizar cadastro de usuario sem cpf
     Inserir no campo cep o cep 81940210
     Inserir no campo numero casa o numero "592, casa 30"
     Realizar o cadastro de um novo usuario
+    Capturar tela quando campo cpf esta vazio    cpf
+
+
+Caso de teste 03 - Inserir senha errada do usuario
+    [Documentation]    Este verifica se existe algum tipo de validação com relação a senha
+    [Tags]    site_login_com_senha_errada
+    Selecionar a opcao de login
+    Digitar no campo usuario "gerente1"
+    Digitar no campo senha "gerente123"
+    Capturar tela quando senha estar errada    senha
