@@ -34,7 +34,7 @@ ${PASSWORD}    Teste@123456
 ${DATA_NASCIMENTO}    13/03/2005
 ${TELEFONE}    41995664344
 ${CEP}    81940210
-${NUMERO_CASA}    Casa 30
+${NUMERO_CASA}     592,Casa 30
 ${CPF}    name:cpf
 
 
@@ -49,13 +49,9 @@ ${TITULO_PIZZAS}    Document
 
 
 
-#Caso de teste 05 - Informações pizzaiolo
+# Caso de teste 05 - Informações pizzaiolo
 
-${NOME_RUA}    Bortolo Pelanda
-${NUMERO_RUA}    592
-${CIDADE}    Curitiba
-${ESTADO}    Paraná
-
+# Todas as informações estão no Caso de teste 02
 
 *** Keywords ***
 Abrir o navegador
@@ -231,25 +227,15 @@ Selecionar a opcao de adicionar novo pizzaiolo
 Inserir no campo a data de nascimento "13/03/2005"
     Input Text    name:data_nascimento    ${DATA_NASCIMENTO}
 
-Inserir no campo rua "Bortolo Pelanda"
-    Input Text    name:rua    ${NOME_RUA}
-
 Inserir no campo num_res o numero "592"
     Input Text    id:num_res    ${NUMERO_CASA}
-
-Inserir no campo a cidade "Curitiba"
-    Input Text    name:cidade    ${CIDADE}
-
-Inserir no campo o estado "Paraná"
-    Input Text    name:estado    ${ESTADO}
 
 Realizar o cadastro do pizzaiolo
     Click Button    id:btn-enviar
 
-
 Verificar o campo cpf foi devidamente preenchido
-     [Arguments]    ${CPF}
+    [Arguments]    ${CPF}
     ${valor_campo}    Get Value    ${CPF}
     Log    Valor do campo CPF: ${valor_campo}
-    Run Keyword If    '${valor_campo}' == ''    Capture Page Screenshot    campo_cpf_vazio.png
+    Run Keyword If    '${valor_campo}' == ''    Capture Page Screenshot    campo_cpf_vazio_pizzaiolo.png
     Run Keyword If    '${valor_campo}' == ''    Log    O campo CPF não foi preenchido!

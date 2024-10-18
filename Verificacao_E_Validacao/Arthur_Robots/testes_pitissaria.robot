@@ -73,10 +73,6 @@ Caso de teste 05 - Cadastrar um Pizzaiolo com campos faltantes
     Inserir no campo a data de nascimento "13/03/2005"
     Inserir no campo celular o celular "419955664344"
     Inserir no campo cep o cep 81940210
-    Inserir no campo rua "Bortolo Pelanda"
     Inserir no campo num_res o numero "592"
-    Inserir no campo numero casa o numero "Casa 30"
-    Inserir no campo a cidade "Curitiba"
-    Inserir no campo o estado "Paraná"
     Realizar o cadastro do pizzaiolo
     Verificar o campo cpf foi devidamente preenchido    cpf
