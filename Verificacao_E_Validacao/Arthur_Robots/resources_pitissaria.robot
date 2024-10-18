@@ -34,13 +34,28 @@ ${PASSWORD}    Teste@123456
 ${DATA_NASCIMENTO}    13/03/2005
 ${TELEFONE}    41995664344
 ${CEP}    81940210
-${NUMERO_CASA}    592
+${NUMERO_CASA}    Casa 30
 ${CPF}    name:cpf
 
 
 # Caso de teste 03 - Informações de login com a senha errada
 ${PSSWD_ERRADA}    gerente123
 ${CAMPO_SENHA}    name:senha
+
+
+#Caso de teste 04 - Informações da pagina
+
+${TITULO_PIZZAS}    Document
+
+
+
+#Caso de teste 05 - Informações pizzaiolo
+
+${NOME_RUA}    Bortolo Pelanda
+${NUMERO_RUA}    592
+${CIDADE}    Curitiba
+${ESTADO}    Paraná
+
 
 *** Keywords ***
 Abrir o navegador
@@ -139,7 +154,7 @@ Inserir no campo cep o cep 81940210
     Sleep    1s
     Input Text    name:cep    ${CEP}
 
-Inserir no campo numero casa o numero "592, casa 30"
+Inserir no campo numero casa o numero "Casa 30"
     Sleep    3s
     Input Text    name:num-res    ${NUMERO_CASA}
 
@@ -149,7 +164,7 @@ Realizar o cadastro de um novo usuario
     Sleep    1s
 
 
-Capturar tela quando campo cpf esta vazio
+Verificar se o campo cpf foi preenchido
     [Arguments]    ${CPF}
     ${valor_campo}    Get Value    ${CPF}
     Log    Valor do campo CPF: ${valor_campo}
@@ -173,5 +188,68 @@ Digitar no campo senha "gerente123"
 Capturar tela quando senha estar errada
     [Arguments]    ${PSSWD_ERRADA}
     ${valor_campo}    Get Value    ${CAMPO_SENHA}
-    Run Keyword If    '${valor_campo}' == ''    Take Screenshot    campo_senha_incorreta
+    Run Keyword If    '${valor_campo}' == ''    Capture Page Screenshot    campo_senha_incorreta.png
     Run Keyword If    '${valor_campo}' == ''    Log    Senha incorreta
+
+# 
+# 
+# 
+# 
+#Caso de teste 04
+
+# Selecionar a opção de login esta localizado no caso de teste 01(Reutilizei para não ficar recriando a mesma linha de codigo)
+
+# Digitar no campo usuario está localizado no caso de teste 01(Reutilizei para não ficar recriando a mesma linha de codigo)
+
+Selecionar a opção de cardapio
+    Click Link    xpath=//a[@href="../paginas/pizzas_prontas.php"]
+
+
+Verificar se foi possivel visualizar as pizzas disponiveis
+    [Arguments]    ${TITULO_PIZZAS}
+    ${TITULO_PAGINA}    Get Title
+    Log    O título da página não corresponde: ${TITULO_PAGINA} vs ${TITULO_PIZZAS}
+    Run Keyword If    '${TITULO_PAGINA}' == '${TITULO_PIZZAS}'    Capture Page Screenshot    pagina_disponivel.png
+
+# 
+# 
+# 
+# 
+# Caso de teste 05
+
+# Selecionar a opção de login esta localizado no caso de teste 01(Reutilizei para não ficar recriando a mesma linha de codigo)
+
+# Digitar no campo usuario está localizado no caso de teste 01(Reutilizei para não ficar recriando a mesma linha de codigo)
+
+Acessar a area do pizzaiolo
+    Click Link    xpath=//a[@href="../php/listagem.php"]
+
+Selecionar a opcao de adicionar novo pizzaiolo
+    Click Link    xpath=//a[@href="cadastro.php"]
+
+
+Inserir no campo a data de nascimento "13/03/2005"
+    Input Text    name:data_nascimento    ${DATA_NASCIMENTO}
+
+Inserir no campo rua "Bortolo Pelanda"
+    Input Text    name:rua    ${NOME_RUA}
+
+Inserir no campo num_res o numero "592"
+    Input Text    id:num_res    ${NUMERO_CASA}
+
+Inserir no campo a cidade "Curitiba"
+    Input Text    name:cidade    ${CIDADE}
+
+Inserir no campo o estado "Paraná"
+    Input Text    name:estado    ${ESTADO}
+
+Realizar o cadastro do pizzaiolo
+    Click Button    id:btn-enviar
+
+
+Verificar o campo cpf foi devidamente preenchido
+     [Arguments]    ${CPF}
+    ${valor_campo}    Get Value    ${CPF}
+    Log    Valor do campo CPF: ${valor_campo}
+    Run Keyword If    '${valor_campo}' == ''    Capture Page Screenshot    campo_cpf_vazio.png
+    Run Keyword If    '${valor_campo}' == ''    Log    O campo CPF não foi preenchido!

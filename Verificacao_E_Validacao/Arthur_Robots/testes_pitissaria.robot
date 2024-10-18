@@ -34,9 +34,9 @@ Caso de teste 02 - Realizar cadastro de usuario sem cpf
     Inserir no campo data de nascimento a data "13/03/2005"
     Inserir no campo celular o celular "419955664344"
     Inserir no campo cep o cep 81940210
-    Inserir no campo numero casa o numero "592, casa 30"
+    Inserir no campo numero casa o numero "Casa 30"
     Realizar o cadastro de um novo usuario
-    Capturar tela quando campo cpf esta vazio    cpf
+    Verificar se o campo cpf foi preenchido    cpf
 
 
 Caso de teste 03 - Inserir senha errada do usuario
@@ -46,3 +46,37 @@ Caso de teste 03 - Inserir senha errada do usuario
     Digitar no campo usuario "gerente1"
     Digitar no campo senha "gerente123"
     Capturar tela quando senha estar errada    senha
+
+
+
+Caso de teste 04 - Encontrar Pizzas Disponiveis
+    [Documentation]    Este verifica se é possivel encontar os sites de pizzas Disponiveis
+    [Tags]    site_encontrar_pizza_disponiveis
+    Selecionar a opcao de login
+    Digitar no campo usuario "gerente1"
+    Digitar no campo senha "123"
+    Selecionar a opção de cardapio
+    Verificar se foi possivel visualizar as pizzas disponiveis    Document
+
+Caso de teste 05 - Cadastrar um Pizzaiolo com campos faltantes
+    [Documentation]    Este testa se é possivel cadastrar um pizzaiolo com um campo em branco
+    [Tags]    site_cadastro_pizzaiolo_campo_faltante
+    Selecionar a opcao de login
+    Digitar no campo usuario "gerente1"
+    Digitar no campo senha "123"
+    Acessar a area do pizzaiolo
+    Selecionar a opcao de adicionar novo pizzaiolo
+    Inserir no campo nome o nome "Adao"
+    Inserir no campo username o username "Adao01"
+    Inserir no campo email o email "adao01@gmail.com"
+    Inserir no campo senha a senha "Teste@123456"
+    Inserir no campo a data de nascimento "13/03/2005"
+    Inserir no campo celular o celular "419955664344"
+    Inserir no campo cep o cep 81940210
+    Inserir no campo rua "Bortolo Pelanda"
+    Inserir no campo num_res o numero "592"
+    Inserir no campo numero casa o numero "Casa 30"
+    Inserir no campo a cidade "Curitiba"
+    Inserir no campo o estado "Paraná"
+    Realizar o cadastro do pizzaiolo
+    Verificar o campo cpf foi devidamente preenchido    cpf
