@@ -239,3 +239,17 @@ Verificar o campo cpf foi devidamente preenchido
     Log    Valor do campo CPF: ${valor_campo}
     Run Keyword If    '${valor_campo}' == ''    Capture Page Screenshot    campo_cpf_vazio_pizzaiolo.png
     Run Keyword If    '${valor_campo}' == ''    Log    O campo CPF não foi preenchido!
+
+# 
+# 
+# 
+# 
+# Caso de teste 06 - Realizar a exclusão de ingrediente na tabela de ingredientes
+
+# Selecionar a opção de login esta localizado no caso de teste 01(Reutilizei para não ficar recriando a mesma linha de codigo)
+
+# Digitar no campo usuario está localizado no caso de teste 01(Reutilizei para não ficar recriando a mesma linha de codigo)
+
+
+Exluir o ingrediente com id "1"
+    Click Link    xpath=//a[@href="delet_ingredientes_php.php?id=1"]

@@ -76,3 +76,13 @@ Caso de teste 05 - Cadastrar um Pizzaiolo com campos faltantes
     Inserir no campo num_res o numero "592"
     Realizar o cadastro do pizzaiolo
     Verificar o campo cpf foi devidamente preenchido    cpf
+
+
+Caso de teste 06 - Realizar a exclusao de Ingrediente na tabela ingredientes
+    [Documentation]    Este verifica se é possivel remover um ingrediente
+    [Tags]    site_exclusão_de_ingrediente
+    Selecionar a opcao de login
+    Digitar no campo usuario "gerente1"
+    Digitar no campo senha "123"
+    Acessar a area de ingredientes
+    Exluir o ingrediente com id "1"
