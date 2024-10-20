@@ -2,6 +2,7 @@
 Library    SeleniumLibrary
 Library    Screenshot
 Library    Process
+Library    XML
 
 
 *** Variables ***
@@ -251,5 +252,11 @@ Verificar o campo cpf foi devidamente preenchido
 # Digitar no campo usuario está localizado no caso de teste 01(Reutilizei para não ficar recriando a mesma linha de codigo)
 
 
-Exluir o ingrediente com id "1"
-    Click Link    xpath=//a[@href="delet_ingredientes_php.php?id=1"]
+Excluir o primeiro ingrediente da tabela
+    Click Link    xpath=(//a[contains(@href, 'delet_ingredientes_php.php?id=')])[1]
+    Sleep    1s
+
+Confirmar exclusão no modal
+    Click Element    xpath=//button[text() = 'Sim, excluir!']
+    Sleep    1s
+    Take Screenshot    ingrediente_excluido.png

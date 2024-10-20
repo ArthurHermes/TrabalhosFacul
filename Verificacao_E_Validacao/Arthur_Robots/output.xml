@@ -1,112 +1,139 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1 (Python 3.11.9 on win32)" generated="2024-10-19T15:12:21.852204" rpa="false" schemaversion="5">
+<robot generator="Robot 7.1 (Python 3.11.9 on win32)" generated="2024-10-20T11:55:27.413729" rpa="false" schemaversion="5">
 <suite id="s1" name="Testes Pitissaria" source="C:\Users\User\Desktop\Faculdade\TrabalhosFacul\Verificacao_E_Validacao\Arthur_Robots\testes_pitissaria.robot">
 <test id="s1-t1" name="Caso de teste 06 - Realizar a exclusao de Ingrediente na tabela ingredientes" line="81">
 <kw name="Abrir o navegador" owner="resources_pitissaria" type="SETUP">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-10-19T15:12:23.343159" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1/Pitissaria/paginas/'.</msg>
+<msg time="2024-10-20T11:55:27.616744" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1/Pitissaria/paginas/'.</msg>
 <arg>${URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-10-19T15:12:23.343159" elapsed="2.365681"/>
+<status status="PASS" start="2024-10-20T11:55:27.616744" elapsed="1.813370"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-10-19T15:12:25.708840" elapsed="0.034000"/>
+<status status="PASS" start="2024-10-20T11:55:29.430114" elapsed="0.034000"/>
 </kw>
-<status status="PASS" start="2024-10-19T15:12:23.343159" elapsed="2.400681"/>
+<status status="PASS" start="2024-10-20T11:55:27.615743" elapsed="1.848371"/>
 </kw>
 <kw name="Selecionar a opcao de login" owner="resources_pitissaria">
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2024-10-19T15:12:26.745694" level="INFO">Slept 1 second.</msg>
+<msg time="2024-10-20T11:55:30.465143" level="INFO">Slept 1 second.</msg>
 <arg>1s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2024-10-19T15:12:25.744839" elapsed="1.000855"/>
+<status status="PASS" start="2024-10-20T11:55:29.465114" elapsed="1.000029"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-10-19T15:12:26.745694" level="INFO">Clicking element 'xpath=//a[@href='login.php']'.</msg>
+<msg time="2024-10-20T11:55:30.465143" level="INFO">Clicking element 'xpath=//a[@href='login.php']'.</msg>
 <arg>xpath=//a[@href='login.php']</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-19T15:12:26.745694" elapsed="0.094154"/>
+<status status="PASS" start="2024-10-20T11:55:30.465143" elapsed="0.116133"/>
 </kw>
-<status status="PASS" start="2024-10-19T15:12:25.743840" elapsed="1.096008"/>
+<status status="PASS" start="2024-10-20T11:55:29.465114" elapsed="1.116162"/>
 </kw>
 <kw name="Digitar no campo usuario &quot;gerente1&quot;" owner="resources_pitissaria">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-10-19T15:12:26.840848" level="INFO">Typing text 'gerente1' into text field 'name:email-username'.</msg>
+<msg time="2024-10-20T11:55:30.582275" level="INFO">Typing text 'gerente1' into text field 'name:email-username'.</msg>
 <arg>name:email-username</arg>
 <arg>${USER}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-19T15:12:26.840848" elapsed="0.063998"/>
+<status status="PASS" start="2024-10-20T11:55:30.582275" elapsed="0.069001"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2024-10-19T15:12:27.904912" level="INFO">Slept 1 second.</msg>
+<msg time="2024-10-20T11:55:31.652960" level="INFO">Slept 1 second.</msg>
 <arg>1s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2024-10-19T15:12:26.904846" elapsed="1.000066"/>
+<status status="PASS" start="2024-10-20T11:55:30.652275" elapsed="1.000685"/>
 </kw>
-<status status="PASS" start="2024-10-19T15:12:26.840848" elapsed="1.064064"/>
+<status status="PASS" start="2024-10-20T11:55:30.581276" elapsed="1.071684"/>
 </kw>
 <kw name="Digitar no campo senha &quot;123&quot;" owner="resources_pitissaria">
 <kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2024-10-19T15:12:27.905913" level="INFO">Typing password into text field 'name:senha'.</msg>
-<msg time="2024-10-19T15:12:27.930913" level="INFO">Temporally setting log level to: NONE</msg>
+<msg time="2024-10-20T11:55:31.653968" level="INFO">Typing password into text field 'name:senha'.</msg>
+<msg time="2024-10-20T11:55:31.678970" level="INFO">Temporally setting log level to: NONE</msg>
 <arg>name:senha</arg>
 <arg>${PSSWD}</arg>
 <doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-19T15:12:27.904912" elapsed="0.053001"/>
+<status status="PASS" start="2024-10-20T11:55:31.652960" elapsed="0.055293"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-10-19T15:12:27.957913" level="INFO">Clicking button 'id:btn-enviar'.</msg>
+<msg time="2024-10-20T11:55:31.709254" level="INFO">Clicking button 'id:btn-enviar'.</msg>
 <arg>id:btn-enviar</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-19T15:12:27.957913" elapsed="0.064102"/>
+<status status="PASS" start="2024-10-20T11:55:31.709254" elapsed="0.061000"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2024-10-19T15:12:30.022144" level="INFO">Slept 2 seconds.</msg>
+<msg time="2024-10-20T11:55:33.770560" level="INFO">Slept 2 seconds.</msg>
 <arg>2s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2024-10-19T15:12:28.022015" elapsed="2.000129"/>
+<status status="PASS" start="2024-10-20T11:55:31.770254" elapsed="2.000306"/>
 </kw>
-<status status="PASS" start="2024-10-19T15:12:27.904912" elapsed="2.117232"/>
+<status status="PASS" start="2024-10-20T11:55:31.652960" elapsed="2.117600"/>
 </kw>
 <kw name="Acessar a area de ingredientes" owner="resources_pitissaria">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-10-19T15:12:30.022144" level="INFO">Clicking element 'xpath=//a[@href="../php/lista_ingredientes.php"]'.</msg>
+<msg time="2024-10-20T11:55:33.771561" level="INFO">Clicking element 'xpath=//a[@href="../php/lista_ingredientes.php"]'.</msg>
 <arg>xpath=//a[@href="../php/lista_ingredientes.php"]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-19T15:12:30.022144" elapsed="0.069001"/>
+<status status="PASS" start="2024-10-20T11:55:33.770560" elapsed="0.083992"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2024-10-19T15:12:31.091185" level="INFO">Slept 1 second.</msg>
+<msg time="2024-10-20T11:55:34.855259" level="INFO">Slept 1 second.</msg>
 <arg>1s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2024-10-19T15:12:30.091145" elapsed="1.000040"/>
+<status status="PASS" start="2024-10-20T11:55:33.854552" elapsed="1.000707"/>
 </kw>
-<status status="PASS" start="2024-10-19T15:12:30.022144" elapsed="1.069041"/>
+<status status="PASS" start="2024-10-20T11:55:33.770560" elapsed="1.084699"/>
 </kw>
-<kw name="Exluir o ingrediente com id &quot;1&quot;" owner="resources_pitissaria">
+<kw name="Exluir o ingrediente com id" owner="resources_pitissaria">
 <kw name="Click Link" owner="SeleniumLibrary">
-<msg time="2024-10-19T15:12:31.091185" level="INFO">Clicking link 'xpath=//a[@href="delet_ingredientes_php.php?id=1"]'.</msg>
-<arg>xpath=//a[@href="delet_ingredientes_php.php?id=1"]</arg>
+<msg time="2024-10-20T11:55:34.856260" level="INFO">Clicking link 'xpath=(//a[contains(@href, 'delet_ingredientes_php.php?id=')])[1]'.</msg>
+<arg>xpath=(//a[contains(@href, 'delet_ingredientes_php.php?id=')])[1]</arg>
 <doc>Clicks a link identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-19T15:12:31.091185" elapsed="0.045001"/>
+<status status="PASS" start="2024-10-20T11:55:34.855259" elapsed="0.057001"/>
 </kw>
-<status status="PASS" start="2024-10-19T15:12:31.091185" elapsed="0.045001"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-10-20T11:55:35.912701" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-10-20T11:55:34.912260" elapsed="1.000441"/>
+</kw>
+<status status="PASS" start="2024-10-20T11:55:34.855259" elapsed="1.057442"/>
+</kw>
+<kw name="Confirmar exclusão no modal" owner="resources_pitissaria">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-20T11:55:35.912701" level="INFO">Clicking element 'xpath=//button[text() = 'Sim, excluir!']'.</msg>
+<arg>xpath=//button[text() = 'Sim, excluir!']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-20T11:55:35.912701" elapsed="0.170246"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-10-20T11:55:37.083243" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-10-20T11:55:36.082947" elapsed="1.000296"/>
+</kw>
+<kw name="Take Screenshot" owner="Screenshot">
+<msg time="2024-10-20T11:55:37.139249" level="INFO" html="true">&lt;a href="ingrediente_excluido.png_1.jpg"&gt;&lt;img src="ingrediente_excluido.png_1.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>ingrediente_excluido.png</arg>
+<doc>Takes a screenshot in JPEG format and embeds it into the log file.</doc>
+<status status="PASS" start="2024-10-20T11:55:37.083243" elapsed="0.056006"/>
+</kw>
+<status status="PASS" start="2024-10-20T11:55:35.912701" elapsed="1.226548"/>
 </kw>
 <kw name="Fechar navegador" owner="resources_pitissaria" type="TEARDOWN">
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2024-10-19T15:12:31.137186" elapsed="2.199519"/>
+<status status="PASS" start="2024-10-20T11:55:37.140244" elapsed="2.095826"/>
 </kw>
-<status status="PASS" start="2024-10-19T15:12:31.137186" elapsed="2.199519"/>
+<status status="PASS" start="2024-10-20T11:55:37.139249" elapsed="2.096821"/>
 </kw>
 <doc>Este verifica se é possivel remover um ingrediente</doc>
 <tag>site_exclusão_de_ingrediente</tag>
-<status status="PASS" start="2024-10-19T15:12:23.342161" elapsed="9.994544"/>
+<status status="PASS" start="2024-10-20T11:55:27.614742" elapsed="11.621328"/>
 </test>
 <doc>Cadastro de ingrediente</doc>
-<status status="PASS" start="2024-10-19T15:12:21.853202" elapsed="11.483503"/>
+<status status="PASS" start="2024-10-20T11:55:27.414729" elapsed="11.822339"/>
 </suite>
 <statistics>
 <total>

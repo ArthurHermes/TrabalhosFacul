@@ -85,4 +85,5 @@ Caso de teste 06 - Realizar a exclusao de Ingrediente na tabela ingredientes
     Digitar no campo usuario "gerente1"
     Digitar no campo senha "123"
     Acessar a area de ingredientes
-    Exluir o ingrediente com id "1"
+    Excluir o primeiro ingrediente da tabela
+    Confirmar exclusão no modal
