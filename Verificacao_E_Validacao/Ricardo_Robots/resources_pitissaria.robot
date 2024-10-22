@@ -12,7 +12,7 @@ ${BROWSER}    chrome
 ${URL_GOOGLE}    https://www.google.com.br/
 
 # Informações do nosso site
-${URL}    http://localhost/GitHub/CrazyCats/Pitissaria/paginas/index.php
+${URL}    http://localhost/Pitissaria/paginas/index.php
 ${TITULO}    Pitissaria
 
 # Caso de teste 01/03 Informações de login corretas
@@ -115,8 +115,11 @@ Capturar tela quando preco vazio
     Run Keyword If    '${valor_campo}' == ''    Capture Page Screenshot    preco_vazio.png
     Run Keyword If    '${valor_campo}' == ''    Log    O campo VALOR não foi preenchido!
 
-
-# Caso de teste 07
+# 
+# 
+# 
+# 
+# Caso de teste 07 - Realizar pedido de uma pizza pronta
 
 Acessar area de pizzas prontas
     Click Element    xpath=//a[@href="../paginas/pizzas_prontas.php"]
