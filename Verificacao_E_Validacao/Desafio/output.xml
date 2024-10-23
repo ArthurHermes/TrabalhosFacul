@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1 (Python 3.11.9 on win32)" generated="2024-10-23T16:26:26.491510" rpa="false" schemaversion="5">
+<suite id="s1" name="Testes" source="C:\Users\User\Desktop\Faculdade\TrabalhosFacul\Verificacao_E_Validacao\Desafio\testes.robot">
+<test id="s1-t1" name="Caso de teste 1 - Verificar qual numero é maior" line="9">
+<kw name="Verificar qual numero é maior" owner="resouces">
+<if>
+<branch type="IF" condition="${NUMERO1} &gt; ${NUMERO2}">
+<kw name="Log" owner="BuiltIn">
+<arg>O numero ${NUMERO1} é maior que o numero ${NUMERO2}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-10-23T16:26:26.687510" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-10-23T16:26:26.687510" elapsed="0.000000"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-23T16:26:26.688510" level="INFO">O numero 2 é maior que o numero 1</msg>
+<arg>O numero ${NUMERO2} é maior que o numero ${NUMERO1}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-23T16:26:26.687510" elapsed="0.001000"/>
+</kw>
+<status status="PASS" start="2024-10-23T16:26:26.687510" elapsed="0.001000"/>
+</branch>
+<status status="PASS" start="2024-10-23T16:26:26.687510" elapsed="0.001000"/>
+</if>
+<status status="PASS" start="2024-10-23T16:26:26.686510" elapsed="0.002000"/>
+</kw>
+<doc>Este verifica qual numero é maior utilizando IF/site_exclusão_de_ingrediente</doc>
+<tag>teste_numero_maior_IF/ELSE</tag>
+<status status="PASS" start="2024-10-23T16:26:26.685509" elapsed="0.003001"/>
+</test>
+<test id="s1-t2" name="Caso de teste 2 - Exibir todos os numeros" line="14">
+<kw name="Laço com For" owner="resouces">
+<for flavor="IN">
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-23T16:26:26.689511" level="INFO">1</msg>
+<arg>${NUMERO}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-23T16:26:26.689511" elapsed="0.000000"/>
+</kw>
+<var name="${NUMERO}">1</var>
+<status status="PASS" start="2024-10-23T16:26:26.689511" elapsed="0.001000"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-23T16:26:26.690511" level="INFO">2</msg>
+<arg>${NUMERO}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-23T16:26:26.690511" elapsed="0.000000"/>
+</kw>
+<var name="${NUMERO}">2</var>
+<status status="PASS" start="2024-10-23T16:26:26.690511" elapsed="0.000000"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-23T16:26:26.690511" level="INFO">3</msg>
+<arg>${NUMERO}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-23T16:26:26.690511" elapsed="0.000000"/>
+</kw>
+<var name="${NUMERO}">3</var>
+<status status="PASS" start="2024-10-23T16:26:26.690511" elapsed="0.000000"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-23T16:26:26.690511" level="INFO">4</msg>
+<arg>${NUMERO}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-23T16:26:26.690511" elapsed="0.000000"/>
+</kw>
+<var name="${NUMERO}">4</var>
+<status status="PASS" start="2024-10-23T16:26:26.690511" elapsed="0.000000"/>
+</iter>
+<var>${NUMERO}</var>
+<value>@{LISTA}</value>
+<status status="PASS" start="2024-10-23T16:26:26.689511" elapsed="0.002000"/>
+</for>
+<status status="PASS" start="2024-10-23T16:26:26.689511" elapsed="0.002000"/>
+</kw>
+<kw name="Laço com While" owner="resouces">
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2024-10-23T16:26:26.691511" level="INFO">Length is 4.</msg>
+<msg time="2024-10-23T16:26:26.691511" level="INFO">${TAMANHO_LISTA} = 4</msg>
+<var>${TAMANHO_LISTA}</var>
+<arg>${LISTA}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2024-10-23T16:26:26.691511" elapsed="0.000000"/>
+</kw>
+<while condition="${CONTADOR} &lt; ${TAMANHO_LISTA}">
+<iter>
+<kw name="Get From List" owner="Collections">
+<msg time="2024-10-23T16:26:26.692509" level="INFO">${NUMERO} = 1</msg>
+<var>${NUMERO}</var>
+<arg>${LISTA}</arg>
+<arg>${CONTADOR}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2024-10-23T16:26:26.692509" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-23T16:26:26.692509" level="INFO">O item no índice 0 é 1</msg>
+<arg>O item no índice ${CONTADOR} é ${NUMERO}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-23T16:26:26.692509" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-23T16:26:26.692509" level="INFO">${CONTADOR} = 1</msg>
+<var>${CONTADOR}</var>
+<arg>${CONTADOR} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-23T16:26:26.692509" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-10-23T16:26:26.691511" elapsed="0.000998"/>
+</iter>
+<iter>
+<kw name="Get From List" owner="Collections">
+<msg time="2024-10-23T16:26:26.693510" level="INFO">${NUMERO} = 2</msg>
+<var>${NUMERO}</var>
+<arg>${LISTA}</arg>
+<arg>${CONTADOR}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2024-10-23T16:26:26.692509" elapsed="0.001001"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-23T16:26:26.693510" level="INFO">O item no índice 1 é 2</msg>
+<arg>O item no índice ${CONTADOR} é ${NUMERO}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-23T16:26:26.693510" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-23T16:26:26.693510" level="INFO">${CONTADOR} = 2</msg>
+<var>${CONTADOR}</var>
+<arg>${CONTADOR} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-23T16:26:26.693510" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-10-23T16:26:26.692509" elapsed="0.001001"/>
+</iter>
+<iter>
+<kw name="Get From List" owner="Collections">
+<msg time="2024-10-23T16:26:26.693510" level="INFO">${NUMERO} = 3</msg>
+<var>${NUMERO}</var>
+<arg>${LISTA}</arg>
+<arg>${CONTADOR}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2024-10-23T16:26:26.693510" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-23T16:26:26.694509" level="INFO">O item no índice 2 é 3</msg>
+<arg>O item no índice ${CONTADOR} é ${NUMERO}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-23T16:26:26.694509" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-23T16:26:26.694509" level="INFO">${CONTADOR} = 3</msg>
+<var>${CONTADOR}</var>
+<arg>${CONTADOR} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-23T16:26:26.694509" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-10-23T16:26:26.693510" elapsed="0.000999"/>
+</iter>
+<iter>
+<kw name="Get From List" owner="Collections">
+<msg time="2024-10-23T16:26:26.694509" level="INFO">${NUMERO} = 4</msg>
+<var>${NUMERO}</var>
+<arg>${LISTA}</arg>
+<arg>${CONTADOR}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2024-10-23T16:26:26.694509" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-23T16:26:26.694509" level="INFO">O item no índice 3 é 4</msg>
+<arg>O item no índice ${CONTADOR} é ${NUMERO}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-23T16:26:26.694509" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-23T16:26:26.695511" level="INFO">${CONTADOR} = 4</msg>
+<var>${CONTADOR}</var>
+<arg>${CONTADOR} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-23T16:26:26.695511" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-10-23T16:26:26.694509" elapsed="0.001002"/>
+</iter>
+<status status="PASS" start="2024-10-23T16:26:26.691511" elapsed="0.004000"/>
+</while>
+<status status="PASS" start="2024-10-23T16:26:26.691511" elapsed="0.004000"/>
+</kw>
+<doc>Este tenta exibir todos os numero utilizando FOR e WHILE</doc>
+<tag>teste_FOR_WHILE</tag>
+<status status="PASS" start="2024-10-23T16:26:26.688510" elapsed="0.007001"/>
+</test>
+<test id="s1-t3" name="Caso de teste 3 - Retorno de busca" line="20">
+<kw name="Testar o acionamento de link no retorno de busca" owner="resouces">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-10-23T16:26:26.696511" level="INFO">Opening browser 'chrome' to base url 'https://google.com'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-10-23T16:26:26.696511" elapsed="2.250018"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-10-23T16:26:28.946529" elapsed="0.029999"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-23T16:26:28.977529" level="INFO">Typing text 'Robot Framework' into text field 'name:q'.</msg>
+<arg>name:q</arg>
+<arg>Robot Framework</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-23T16:26:28.976528" elapsed="0.084037"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2024-10-23T16:26:29.060565" level="INFO">Sending key(s) ('ENTER',) to name:q element.</msg>
+<msg time="2024-10-23T16:26:29.343341" level="INFO">Pressing special key ENTER to element.</msg>
+<msg time="2024-10-23T16:26:29.343341" level="INFO">Releasing special key ENTER.</msg>
+<arg>name:q</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2024-10-23T16:26:29.060565" elapsed="1.127536"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath://h3[contains(text(), 'Robot Framework')]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-10-23T16:26:30.188101" elapsed="0.015998"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-23T16:26:30.205099" level="INFO">Clicking element 'xpath://h3[contains(text(), 'Robot Framework')]'.</msg>
+<arg>xpath://h3[contains(text(), 'Robot Framework')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-23T16:26:30.204099" elapsed="1.624722"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-10-23T16:26:31.828821" elapsed="2.388086"/>
+</kw>
+<status status="PASS" start="2024-10-23T16:26:26.696511" elapsed="7.520396"/>
+</kw>
+<doc>Este verifica o retorno de um link de busca</doc>
+<tag>teste_retorno_de_busca</tag>
+<status status="PASS" start="2024-10-23T16:26:26.695511" elapsed="7.521396"/>
+</test>
+<doc>Realizar testes do dessafio</doc>
+<status status="PASS" start="2024-10-23T16:26:26.492674" elapsed="7.725235"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">teste_FOR_WHILE</stat>
+<stat pass="1" fail="0" skip="0">teste_numero_maior_IF/ELSE</stat>
+<stat pass="1" fail="0" skip="0">teste_retorno_de_busca</stat>
+</tag>
+<suite>
+<stat pass="3" fail="0" skip="0" id="s1" name="Testes">Testes</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
