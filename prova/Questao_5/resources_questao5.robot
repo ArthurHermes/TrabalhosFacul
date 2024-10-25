@@ -14,6 +14,7 @@ ${EMPRESA}    VIBE BAR
 
 Abrir Navegador
     Open Browser    ${URL}    ${BROWSER}
+    Maximize Browser Window
 
 Inserir email no campo email
     Input Text    id:inputProp0     ${EMAIL}
@@ -31,7 +32,8 @@ Printar campos preenchidos
     Capture Page Screenshot    campos_preenchidos.png
 
 Enviar Formulario
-    
+    Click Element    id:update-profile-submit-btn
+    Capture Page Screenshot    formulario_enviado.png
 
 Fechar Navegador
     Close Browser
