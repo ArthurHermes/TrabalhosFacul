@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1 (Python 3.12.2 on win32)" generated="2024-10-25T11:09:41.057017" rpa="false" schemaversion="5">
+<suite id="s1" name="Testes Questao5" source="c:\Users\arthu\OneDrive\Área de Trabalho\Faculdade\4° semestre\TrabalhosFacul\prova\Questao_5\testes_questao5.robot">
+<test id="s1-t1" name="Caso de teste 01 - Preencher campos do formulario" line="17">
+<kw name="Abrir Navegador" owner="resources_questao5" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-10-25T11:09:41.223509" level="INFO">Opening browser 'chrome' to base url 'https://visitor.r20.constantcontact.com/manage/optin?v=001nFupVrVrNd4UjGfZPy62KHBuj79961VKz4QWIP-7uVcCr1I-NMtOt3RO6gWporZprHQ_BuPjcMuMYXvwSb-6Qh_PdVoVxfJWRDbpNc02StM%3D'.</msg>
+<msg time="2024-10-25T11:09:41.511537" level="WARN">The chromedriver version (129.0.6668.100) detected in PATH at C:\Users\arthu\OneDrive\Área de Trabalho\Programs\chromedriver-win64\chromedriver.exe might not be compatible with the detected chrome version (130.0.6723.70); currently, chromedriver 130.0.6723.69 is recommended for chrome 130.*, so it is advised to delete the driver in PATH and retry</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-10-25T11:09:41.223509" elapsed="5.449270"/>
+</kw>
+<status status="PASS" start="2024-10-25T11:09:41.223509" elapsed="5.449270"/>
+</kw>
+<kw name="Inserir email no campo email" owner="resources_questao5">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-25T11:09:46.674697" level="INFO">Typing text 'arthurfhermes@gmail.com' into text field 'id:inputProp0'.</msg>
+<arg>id:inputProp0</arg>
+<arg>${EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-25T11:09:46.673827" elapsed="0.159516"/>
+</kw>
+<status status="PASS" start="2024-10-25T11:09:46.673827" elapsed="0.159516"/>
+</kw>
+<kw name="Inserir nome no campo nome" owner="resources_questao5">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-25T11:09:46.833343" level="INFO">Typing text 'Arthur Hermes' into text field 'id:inputProp1'.</msg>
+<arg>id:inputProp1</arg>
+<arg>${NOME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-25T11:09:46.833343" elapsed="0.094353"/>
+</kw>
+<status status="PASS" start="2024-10-25T11:09:46.833343" elapsed="0.094353"/>
+</kw>
+<kw name="Inserir cargo no campo cargo" owner="resources_questao5">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-25T11:09:46.928696" level="INFO">Typing text 'Programador' into text field 'inputProp2'.</msg>
+<arg>inputProp2</arg>
+<arg>${CARGO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-25T11:09:46.928696" elapsed="0.074696"/>
+</kw>
+<status status="PASS" start="2024-10-25T11:09:46.927696" elapsed="0.075696"/>
+</kw>
+<kw name="Inserir empresa no campo empresa" owner="resources_questao5">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-25T11:09:47.004391" level="INFO">Typing text 'VIBE BAR' into text field 'id:inputProp3'.</msg>
+<arg>id:inputProp3</arg>
+<arg>${EMPRESA}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-25T11:09:47.004391" elapsed="0.067089"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-10-25T11:09:49.074509" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-10-25T11:09:47.071480" elapsed="2.003029"/>
+</kw>
+<status status="PASS" start="2024-10-25T11:09:47.003392" elapsed="2.071117"/>
+</kw>
+<kw name="Fechar Navegador" owner="resources_questao5" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-10-25T11:09:49.077150" elapsed="2.155770"/>
+</kw>
+<status status="PASS" start="2024-10-25T11:09:49.077150" elapsed="2.155770"/>
+</kw>
+<doc>Este preenche todos os campos do formulario</doc>
+<tag>newsletter_natura</tag>
+<status status="PASS" start="2024-10-25T11:09:41.223509" elapsed="10.009411"/>
+</test>
+<doc>Teste para a prova RA3</doc>
+<status status="PASS" start="2024-10-25T11:09:41.060941" elapsed="10.176861"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">newsletter_natura</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Testes Questao5">Testes Questao5</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-10-25T11:09:41.511537" level="WARN">The chromedriver version (129.0.6668.100) detected in PATH at C:\Users\arthu\OneDrive\Área de Trabalho\Programs\chromedriver-win64\chromedriver.exe might not be compatible with the detected chrome version (130.0.6723.70); currently, chromedriver 130.0.6723.69 is recommended for chrome 130.*, so it is advised to delete the driver in PATH and retry</msg>
+</errors>
+</robot>
