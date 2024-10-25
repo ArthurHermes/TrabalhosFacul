@@ -1,108 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1 (Python 3.12.2 on win32)" generated="2024-10-25T11:27:15.097991" rpa="false" schemaversion="5">
+<robot generator="Robot 7.1 (Python 3.12.2 on win32)" generated="2024-10-25T11:28:37.969470" rpa="false" schemaversion="5">
 <suite id="s1" name="Testes Questao5" source="c:\Users\arthu\OneDrive\Área de Trabalho\Faculdade\4° semestre\TrabalhosFacul\prova\Questao_5\testes_questao5.robot">
 <test id="s1-t1" name="Caso de teste 01 - Preencher campos do formulario" line="17">
 <kw name="Abrir Navegador" owner="resources_questao5" type="SETUP">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-10-25T11:27:15.265698" level="INFO">Opening browser 'chrome' to base url 'https://visitor.r20.constantcontact.com/manage/optin?v=001nFupVrVrNd4UjGfZPy62KHBuj79961VKz4QWIP-7uVcCr1I-NMtOt3RO6gWporZprHQ_BuPjcMuMYXvwSb-6Qh_PdVoVxfJWRDbpNc02StM%3D'.</msg>
-<msg time="2024-10-25T11:27:15.566333" level="WARN">The chromedriver version (129.0.6668.100) detected in PATH at C:\Users\arthu\OneDrive\Área de Trabalho\Programs\chromedriver-win64\chromedriver.exe might not be compatible with the detected chrome version (130.0.6723.70); currently, chromedriver 130.0.6723.69 is recommended for chrome 130.*, so it is advised to delete the driver in PATH and retry</msg>
+<msg time="2024-10-25T11:28:38.128427" level="INFO">Opening browser 'chrome' to base url 'https://visitor.r20.constantcontact.com/manage/optin?v=001nFupVrVrNd4UjGfZPy62KHBuj79961VKz4QWIP-7uVcCr1I-NMtOt3RO6gWporZprHQ_BuPjcMuMYXvwSb-6Qh_PdVoVxfJWRDbpNc02StM%3D'.</msg>
+<msg time="2024-10-25T11:28:38.475591" level="WARN">The chromedriver version (129.0.6668.100) detected in PATH at C:\Users\arthu\OneDrive\Área de Trabalho\Programs\chromedriver-win64\chromedriver.exe might not be compatible with the detected chrome version (130.0.6723.70); currently, chromedriver 130.0.6723.69 is recommended for chrome 130.*, so it is advised to delete the driver in PATH and retry</msg>
 <arg>${URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-10-25T11:27:15.265698" elapsed="5.410073"/>
+<status status="PASS" start="2024-10-25T11:28:38.128427" elapsed="5.633498"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-10-25T11:27:20.676500" elapsed="0.029907"/>
+<status status="PASS" start="2024-10-25T11:28:43.762930" elapsed="0.038899"/>
 </kw>
-<status status="PASS" start="2024-10-25T11:27:15.265698" elapsed="5.441710"/>
+<status status="PASS" start="2024-10-25T11:28:38.128427" elapsed="5.673402"/>
 </kw>
 <kw name="Inserir email no campo email" owner="resources_questao5">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-10-25T11:27:20.708384" level="INFO">Typing text 'arthurfhermes@gmail.com' into text field 'id:inputProp0'.</msg>
+<msg time="2024-10-25T11:28:43.801829" level="INFO">Typing text 'arthurfhermes@gmail.com' into text field 'id:inputProp0'.</msg>
 <arg>id:inputProp0</arg>
 <arg>${EMAIL}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-25T11:27:20.708384" elapsed="0.153066"/>
+<status status="PASS" start="2024-10-25T11:28:43.801829" elapsed="0.209728"/>
 </kw>
-<status status="PASS" start="2024-10-25T11:27:20.707408" elapsed="0.154042"/>
+<status status="PASS" start="2024-10-25T11:28:43.801829" elapsed="0.209728"/>
 </kw>
 <kw name="Inserir nome no campo nome" owner="resources_questao5">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-10-25T11:27:20.861450" level="INFO">Typing text 'Arthur Hermes' into text field 'id:inputProp1'.</msg>
+<msg time="2024-10-25T11:28:44.011557" level="INFO">Typing text 'Arthur Hermes' into text field 'id:inputProp1'.</msg>
 <arg>id:inputProp1</arg>
 <arg>${NOME}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-25T11:27:20.861450" elapsed="0.091283"/>
+<status status="PASS" start="2024-10-25T11:28:44.011557" elapsed="0.101651"/>
 </kw>
-<status status="PASS" start="2024-10-25T11:27:20.861450" elapsed="0.091283"/>
+<status status="PASS" start="2024-10-25T11:28:44.011557" elapsed="0.101651"/>
 </kw>
 <kw name="Inserir cargo no campo cargo" owner="resources_questao5">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-10-25T11:27:20.953744" level="INFO">Typing text 'Tester' into text field 'inputProp2'.</msg>
+<msg time="2024-10-25T11:28:44.113208" level="INFO">Typing text 'Tester' into text field 'inputProp2'.</msg>
 <arg>inputProp2</arg>
 <arg>${CARGO}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-25T11:27:20.953744" elapsed="0.068106"/>
+<status status="PASS" start="2024-10-25T11:28:44.113208" elapsed="0.068566"/>
 </kw>
-<status status="PASS" start="2024-10-25T11:27:20.953744" elapsed="0.068106"/>
+<status status="PASS" start="2024-10-25T11:28:44.113208" elapsed="0.068566"/>
 </kw>
 <kw name="Inserir empresa no campo empresa" owner="resources_questao5">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-10-25T11:27:21.021850" level="INFO">Typing text 'VIBE BAR' into text field 'id:inputProp3'.</msg>
+<msg time="2024-10-25T11:28:44.181774" level="INFO">Typing text 'VIBE BAR' into text field 'id:inputProp3'.</msg>
 <arg>id:inputProp3</arg>
 <arg>${EMPRESA}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-25T11:27:21.021850" elapsed="0.076737"/>
+<status status="PASS" start="2024-10-25T11:28:44.181774" elapsed="0.071699"/>
 </kw>
-<status status="PASS" start="2024-10-25T11:27:21.021850" elapsed="0.076737"/>
+<status status="PASS" start="2024-10-25T11:28:44.181774" elapsed="0.071699"/>
 </kw>
 <kw name="Printar campos preenchidos" owner="resources_questao5">
 <kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2024-10-25T11:27:21.199426" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="campos_preenchidos.png"&gt;&lt;img src="campos_preenchidos.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-10-25T11:28:44.344460" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="campos_preenchidos.png"&gt;&lt;img src="campos_preenchidos.png" width="800px"&gt;&lt;/a&gt;</msg>
 <arg>campos_preenchidos.png</arg>
 <doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2024-10-25T11:27:21.099922" elapsed="0.099504"/>
+<status status="PASS" start="2024-10-25T11:28:44.253473" elapsed="0.090987"/>
 </kw>
-<status status="PASS" start="2024-10-25T11:27:21.099922" elapsed="0.099504"/>
+<status status="PASS" start="2024-10-25T11:28:44.253473" elapsed="0.090987"/>
 </kw>
 <kw name="Enviar Formulario" owner="resources_questao5">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-10-25T11:27:21.207954" level="INFO">Clicking element 'id:update-profile-submit-btn'.</msg>
+<msg time="2024-10-25T11:28:44.356611" level="INFO">Clicking element 'id:update-profile-submit-btn'.</msg>
 <arg>id:update-profile-submit-btn</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-25T11:27:21.207954" elapsed="0.628179"/>
+<status status="PASS" start="2024-10-25T11:28:44.344460" elapsed="0.521933"/>
 </kw>
 <kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2024-10-25T11:27:21.943518" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="formulario_enviado.png"&gt;&lt;img src="formulario_enviado.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-10-25T11:28:44.974493" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="formulario_enviado.png"&gt;&lt;img src="formulario_enviado.png" width="800px"&gt;&lt;/a&gt;</msg>
 <arg>formulario_enviado.png</arg>
 <doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2024-10-25T11:27:21.837153" elapsed="0.106365"/>
+<status status="PASS" start="2024-10-25T11:28:44.866393" elapsed="0.109100"/>
 </kw>
-<status status="PASS" start="2024-10-25T11:27:21.207954" elapsed="0.735564"/>
+<status status="PASS" start="2024-10-25T11:28:44.344460" elapsed="0.631033"/>
 </kw>
 <kw name="Confirmar envio" owner="resources_questao5">
 <kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2024-10-25T11:27:22.056876" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="Form_enviado.png"&gt;&lt;img src="Form_enviado.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-10-25T11:28:45.078289" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="Form_enviado.png"&gt;&lt;img src="Form_enviado.png" width="800px"&gt;&lt;/a&gt;</msg>
 <arg>Form_enviado.png</arg>
 <doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2024-10-25T11:27:21.943518" elapsed="0.113358"/>
+<status status="PASS" start="2024-10-25T11:28:44.976495" elapsed="0.101794"/>
 </kw>
-<status status="PASS" start="2024-10-25T11:27:21.943518" elapsed="0.113358"/>
+<status status="PASS" start="2024-10-25T11:28:44.976495" elapsed="0.101794"/>
 </kw>
 <kw name="Fechar Navegador" owner="resources_questao5" type="TEARDOWN">
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2024-10-25T11:27:22.056876" elapsed="2.159802"/>
+<status status="PASS" start="2024-10-25T11:28:45.079571" elapsed="2.182223"/>
 </kw>
-<status status="PASS" start="2024-10-25T11:27:22.056876" elapsed="2.159802"/>
+<status status="PASS" start="2024-10-25T11:28:45.079571" elapsed="2.182486"/>
 </kw>
 <doc>Este preenche todos os campos do formulario</doc>
 <tag>site_convergencia_digital</tag>
-<status status="PASS" start="2024-10-25T11:27:15.265698" elapsed="8.950980"/>
+<status status="PASS" start="2024-10-25T11:28:38.128427" elapsed="9.133630"/>
 </test>
 <doc>Teste para a prova RA3</doc>
-<status status="PASS" start="2024-10-25T11:27:15.101935" elapsed="9.114743"/>
+<status status="PASS" start="2024-10-25T11:28:37.973469" elapsed="9.288588"/>
 </suite>
 <statistics>
 <total>
@@ -116,6 +116,6 @@
 </suite>
 </statistics>
 <errors>
-<msg time="2024-10-25T11:27:15.566333" level="WARN">The chromedriver version (129.0.6668.100) detected in PATH at C:\Users\arthu\OneDrive\Área de Trabalho\Programs\chromedriver-win64\chromedriver.exe might not be compatible with the detected chrome version (130.0.6723.70); currently, chromedriver 130.0.6723.69 is recommended for chrome 130.*, so it is advised to delete the driver in PATH and retry</msg>
+<msg time="2024-10-25T11:28:38.475591" level="WARN">The chromedriver version (129.0.6668.100) detected in PATH at C:\Users\arthu\OneDrive\Área de Trabalho\Programs\chromedriver-win64\chromedriver.exe might not be compatible with the detected chrome version (130.0.6723.70); currently, chromedriver 130.0.6723.69 is recommended for chrome 130.*, so it is advised to delete the driver in PATH and retry</msg>
 </errors>
 </robot>
