@@ -7,7 +7,7 @@ ${URL}    https://visitor.r20.constantcontact.com/manage/optin?v=001nFupVrVrNd4U
 
 ${NOME}    Arthur Hermes
 ${EMAIL}    arthurfhermes@gmail.com
-${Cargo}    Programador
+${Cargo}    Tester
 ${EMPRESA}    VIBE BAR    
 
 *** Keywords ***
@@ -34,6 +34,11 @@ Printar campos preenchidos
 Enviar Formulario
     Click Element    id:update-profile-submit-btn
     Capture Page Screenshot    formulario_enviado.png
+
+
+Confirmar envio
+    Capture Page Screenshot    Form_enviado.png
+        
 
 Fechar Navegador
     Close Browser
