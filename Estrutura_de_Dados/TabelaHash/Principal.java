@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class Principal {
     public static void main(String[] args) {
-        String caminhoArquivo = "Estrutura_de_dados/TabelaHash/names_5000.csv"; // Certifique-se de que o arquivo está no caminho correto
+        String caminhoArquivo = "names_5000.csv"; // Certifique-se de que o arquivo está no caminho correto
         TabelaHash tabelaLinear = new TabelaHashProbingLinear(6000);
         TabelaHash tabelaQuadratica = new TabelaHashProbingQuadratico(6000);
 

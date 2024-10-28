@@ -5,10 +5,11 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) {
         String filePath = "names_5000.csv"; // Caminho para o seu arquivo CSV
-        HashTable table1 = new HashTableFunction1(100);
-        HashTable table2 = new HashTableFunction2(100);
+        HashTable table1 = new HashTableFunction1(5000);
+        HashTable table2 = new HashTableFunction2(5000);
 
         // Ler o arquivo CSV e inserir os nomes nas tabelas
+        //marcar tempo da insercao, fazer um vetor de string{} e inserir tudo nele e depois inserir separadamente em cada tabela marcando o tempo
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = br.readLine()) != null) {
@@ -67,6 +68,7 @@ public class Main {
 
         System.out.println("\nDistribuição de chaves:");
         for (int i = 0; i < distribution.length; i++) {
+            if(distribution[i]==1)
             System.out.println("Índice " + i + ": " + distribution[i] + " chaves");
         }
     }
