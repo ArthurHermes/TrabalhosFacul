@@ -10,26 +10,27 @@ abstract class HashTable {
         this.table = new String[size];
         this.collisions = 0;
     }
-    // tem que guardar atual da tabela para parar de inserir
-    // Verificar se tem colisao antes do while da colisao
+
     protected abstract int hashFunction(String key);
 
     public void insert(String key) {
         int index = hashFunction(key);
         int originalIndex = index;
-        if(table[index] == null){
-            table[index] = key;
-        }else {
-            index = (index + 1) % size;
+
+        // Verificar se há colisão antes do loop
+        if (table[index] != null) {
+            collisions++; // Contar colisão antes de começar a resolver
+            index = (index + 1) % size; // Endereçamento aberto
             while (table[index] != null) {
                 collisions++;
-                index = (index + 1) % size; // Endereçamento aberto
+                index = (index + 1) % size; // Continuar buscando
                 if (index == originalIndex) {
                     throw new RuntimeException("Table is full");
                 }
             }
         }
-        
+
+        table[index] = key; // Inserir a chave no espaço vazio encontrado
     }
 
     public boolean search(String key) {
@@ -54,5 +55,18 @@ abstract class HashTable {
 
     public String[] getTable() {
         return table;
+    }
+}
+
+// Exemplo de implementação concreta da HashTable
+class SimpleHashTable extends HashTable {
+
+    public SimpleHashTable(int size) {
+        super(size);
+    }
+
+    @Override
+    protected int hashFunction(String key) {
+        return Math.abs(key.hashCode()) % size; // Função hash simples
     }
 }
