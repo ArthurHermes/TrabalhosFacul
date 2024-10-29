@@ -9,7 +9,7 @@ public class MainInsertionSort {
 
         numeros = InsertionSort.insertionSort(numeros);
 
-        InsertionSort.exibirVetor("Ordenado:", numeros);
+        InsertionSort.exibirVetor(" Valores Ordenado:", numeros);
 
         long tempoFim = System.currentTimeMillis();
 

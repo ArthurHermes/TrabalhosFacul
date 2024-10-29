@@ -1,5 +1,4 @@
 public class MainQuickSort {
-
     public static void main(String[] args) {
 
         long tempoInicio = System.currentTimeMillis();
@@ -12,7 +11,7 @@ public class MainQuickSort {
         
         ordenador.ordenar();
 
-        ordenador.exibirVetor("Vetor ordenado:");
+        ordenador.exibirVetor("Valores ordenado:");
 
         long tempoFim = System.currentTimeMillis();
 

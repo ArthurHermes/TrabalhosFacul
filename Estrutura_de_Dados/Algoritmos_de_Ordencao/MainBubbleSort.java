@@ -8,10 +8,10 @@ public class MainBubbleSort {
         int[] numeros = leitor.lerNumeros();
 
         BubbleSort bubbleSort = new BubbleSort(numeros);
-
+        
         bubbleSort.ordenar();
 
-        bubbleSort.exibirVetor("Ordenado:");
+        bubbleSort.exibirVetor("Valores Ordenado:");
 
         long tempoFim = System.currentTimeMillis();
 
