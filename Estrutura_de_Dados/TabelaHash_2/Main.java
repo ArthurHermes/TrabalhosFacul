@@ -1,61 +1,54 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        // Defina as variáveis para o tamanho da tabela e o número de nomes
-        int tableSize = 5000; // Tamanho da tabela hash
-        int numberOfNames = 5000; // Número de nomes a serem lidos
-
         String filePath = "Estrutura_de_Dados\\TabelaHash_2\\names_5000.csv"; // Caminho para o seu arquivo CSV
-        HashTable table1 = new HashTableFunction1(tableSize);
-        HashTable table2 = new HashTableFunction2(tableSize);
+        HashTable table1 = new HashTableFunction1(5000);
+        HashTable table2 = new HashTableFunction2(5000);
+        List<String> nomes = new ArrayList<>();
 
-        // Ler o arquivo CSV e armazenar os nomes em um vetor
-        String[] names = new String[numberOfNames];
-        int index = 0;
-
+        // Ler o arquivo CSV e armazenar os nomes em um vetor de strings
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
-            while ((line = br.readLine()) != null && index < names.length) {
-                names[index++] = line.trim();
+            while ((line = br.readLine()) != null) {
+                nomes.add(line.trim());
             }
         } catch (IOException e) {
-            System.err.println("Erro ao ler o arquivo: " + e.getMessage());
-            return; // Termina a execução se não conseguir ler o arquivo
+            e.printStackTrace();
         }
 
-        // Marcar tempo da inserção na tabela 1
-        long startTime = System.nanoTime();
-        for (String name : names) {
-            if (name != null) {
-                table1.insert(name);
-            }
-        }
-        long endTime = System.nanoTime();
-        long insertionTime1 = endTime - startTime;
+        // Inserir nomes nas tabelas, marcando o tempo de inserção
+        long startTime, endTime;
 
-        // Marcar tempo da inserção na tabela 2
+        // Inserção na tabela 1
         startTime = System.nanoTime();
-        for (String name : names) {
-            if (name != null) {
-                table2.insert(name);
-            }
+        for (String name : nomes) {
+            table1.insert(name);
         }
         endTime = System.nanoTime();
-        long insertionTime2 = endTime - startTime;
+        long timeTable1Insert = (endTime - startTime) / 1_000_000; // Convertendo para milissegundos
+
+        // Inserção na tabela 2
+        startTime = System.nanoTime();
+        for (String name : nomes) {
+            table2.insert(name);
+        }
+        endTime = System.nanoTime();
+        long timeTable2Insert = (endTime - startTime) / 1_000_000; // Convertendo para milissegundos
+
+        // Relatório de inserção
+        System.out.println("Tempo total de inserção na Tabela 1 (Função Hash 1): " + timeTable1Insert + " ms");
+        System.out.println("Tempo total de inserção na Tabela 2 (Função Hash 2): " + timeTable2Insert + " ms");
 
         // Testar eficiência
         testEfficiency(table1, table2);
-
-        // Relatório de tempos de inserção
-        System.out.println("Tempo total de inserção na Tabela 1 (Função Hash 1): " + insertionTime1 + " ns");
-        System.out.println("Tempo total de inserção na Tabela 2 (Função Hash 2): " + insertionTime2 + " ns");
     }
 
     private static void testEfficiency(HashTable table1, HashTable table2) {
-        // Teste de buscas
         long startTime, endTime;
 
         // Tempo de busca na tabela 1
@@ -64,7 +57,7 @@ public class Main {
             if (name != null) table1.search(name);
         }
         endTime = System.nanoTime();
-        long time1 = endTime - startTime;
+        long timeTable1Search = (endTime - startTime) / 1_000_000; // Convertendo para milissegundos
 
         // Tempo de busca na tabela 2
         startTime = System.nanoTime();
@@ -72,23 +65,23 @@ public class Main {
             if (name != null) table2.search(name);
         }
         endTime = System.nanoTime();
-        long time2 = endTime - startTime;
+        long timeTable2Search = (endTime - startTime) / 1_000_000; // Convertendo para milissegundos
 
-        // Relatório de buscas
+        // Relatório
         System.out.println("\nTabela 1 (Função Hash 1):");
         System.out.println("Número de colisões: " + table1.getCollisions());
-        System.out.println("Tempo total de busca: " + time1 + " ns");
+        System.out.println("Tempo total de busca: " + timeTable1Search + " ms");
 
         System.out.println("\nTabela 2 (Função Hash 2):");
         System.out.println("Número de colisões: " + table2.getCollisions());
-        System.out.println("Tempo total de busca: " + time2 + " ns");
+        System.out.println("Tempo total de busca: " + timeTable2Search + " ms");
 
-        // Distribuição das chaves
-        printKeyDistribution(table1);
-        printKeyDistribution(table2);
+        // Distribuição das colisões
+        printCollisionDistribution(table1);
+        printCollisionDistribution(table2);
     }
 
-    private static void printKeyDistribution(HashTable table) {
+    private static void printCollisionDistribution(HashTable table) {
         int[] distribution = new int[table.size];
         for (String name : table.getTable()) {
             if (name != null) {
@@ -97,9 +90,11 @@ public class Main {
             }
         }
 
-        System.out.println("\nDistribuição de chaves:");
+        System.out.println("\nDistribuição de colisões para a Tabela:");
         for (int i = 0; i < distribution.length; i++) {
-            System.out.println("Indice " + i + ": " + distribution[i] + " chaves");
+            if (distribution[i] > 1) { // Exibir somente índices com colisões
+                System.out.println("Índice " + i + ": " + distribution[i] + " colisões");
+            }
         }
     }
 }
