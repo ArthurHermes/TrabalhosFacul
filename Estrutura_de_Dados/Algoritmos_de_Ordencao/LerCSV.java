@@ -5,13 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LerCSV {
-    private String arquivoCSV;
+    private final String arquivoCSV;
 
     public LerCSV(String arquivoCSV) {
         this.arquivoCSV = arquivoCSV;
     }
 
-    public List<Integer> lerNumeros() {
+    public int[] lerNumeros() {
         List<Integer> numeros = new ArrayList<>();
         String linha;
 
@@ -21,27 +21,14 @@ public class LerCSV {
                     int numero = Integer.parseInt(linha.trim());
                     numeros.add(numero);
                 } catch (NumberFormatException e) {
-                    System.out.println("Linha invalida: " + linha);
+                    System.out.println("Linha inválida: " + linha);
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e);
         }
 
-        return numeros;
-    }
-
-    public static void main(String[] args) {
-
-        LerCSV leitor = new LerCSV("csv\\aleatorio_10000.csv");
-        
-        
-        List<Integer> numeros = leitor.lerNumeros();
-
-        
-        System.out.println("Numeros lidos do arquivo:");
-        for (int numero : numeros) {
-            System.out.println("Numero: " + numero);
-        }
+        // Convertendo a lista para um array de inteiros
+        return numeros.stream().mapToInt(i -> i).toArray();
     }
 }
