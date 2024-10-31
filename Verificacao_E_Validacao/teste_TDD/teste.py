@@ -1,7 +1,7 @@
 from unittest import TestCase, main
 
 def calcular_area_retangulo(base, altura):
-    pass
+    return base * altura
 
 
 class TestCalcularAreaRetangulo(TestCase):
