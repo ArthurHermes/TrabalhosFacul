@@ -1,9 +1,11 @@
+import java.text.DecimalFormat;
+
 public class MainQuickSort {
     public static void main(String[] args) {
 
-        long tempoInicio = System.currentTimeMillis();
+        long tempoInicio = System.nanoTime();
 
-        LerCSV leitor = new LerCSV("csv\\aleatorio_10000.csv");
+        LerCSV leitor = new LerCSV("csv\\decrescente_10000.csv");
         
         int[] numeros = leitor.lerNumeros();
 
@@ -13,9 +15,13 @@ public class MainQuickSort {
 
         ordenador.exibirVetor("Valores ordenado:");
 
-        long tempoFim = System.currentTimeMillis();
+        long tempoFim = System.nanoTime();
 
-        System.out.println("Tempo de execução: " + (tempoFim - tempoInicio) + " Milisegundos");
-        System.out.println("Tempo de execução: " + ((tempoFim - tempoInicio) / 1000) + " Segundos");
+        long tempoTotal = tempoFim - tempoInicio;
+
+        DecimalFormat df_miliSegundos = new DecimalFormat("#,###");
+
+        System.out.println("Tempo de execução em milisegundos: " + df_miliSegundos.format(tempoTotal));
+
     }
 }

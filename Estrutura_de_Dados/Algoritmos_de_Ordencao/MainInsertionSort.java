@@ -1,9 +1,11 @@
+import java.text.DecimalFormat;
+
 public class MainInsertionSort {
     public static void main(String[] args) {
-        long tempoInicio = System.currentTimeMillis();
+        long tempoInicio = System.nanoTime();
 
 
-        LerCSV leitor = new LerCSV("csv\\aleatorio_10000.csv");
+        LerCSV leitor = new LerCSV("csv\\aleatorio_100.csv");
 
         int[] numeros = leitor.lerNumeros();
 
@@ -11,9 +13,12 @@ public class MainInsertionSort {
 
         InsertionSort.exibirVetor(" Valores Ordenado:", numeros);
 
-        long tempoFim = System.currentTimeMillis();
+        long tempoFim = System.nanoTime();
 
-        System.out.println("Tempo de execução: " + (tempoFim - tempoInicio) + " Milisegundos");
-        System.out.println("Tempo de execução: " + ((tempoFim - tempoInicio) / 1000) + " Segundos");
+        long tempoTotal = tempoFim - tempoInicio;
+
+        DecimalFormat df_miliSegundos = new DecimalFormat("#,###");
+
+        System.out.println("Tempo de execução em milisegundos: " + df_miliSegundos.format(tempoTotal));
     }
 }

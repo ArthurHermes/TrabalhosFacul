@@ -1,7 +1,9 @@
+import java.text.DecimalFormat;
+
 public class MainBubbleSort {
     public static void main(String[] args) {
 
-        long tempoInicio = System.currentTimeMillis();
+        long tempoInicio = System.nanoTime();
 
         LerCSV leitor = new LerCSV("csv\\aleatorio_10000.csv");
         
@@ -13,9 +15,12 @@ public class MainBubbleSort {
 
         bubbleSort.exibirVetor("Valores Ordenado:");
 
-        long tempoFim = System.currentTimeMillis();
+        long tempoFim = System.nanoTime();
 
-        System.out.println("Tempo de execução: " + (tempoFim - tempoInicio) + " Milisegundos");
-        System.out.println("Tempo de execução: " + ((tempoFim - tempoInicio) / 1000) + " Segundos");
+        long tempoTotalNano = tempoFim - tempoInicio;
+
+        DecimalFormat df_nanoSegundos = new DecimalFormat("#,###");
+
+        System.out.println("Tempo de execução em nanosegundos: " + df_nanoSegundos.format(tempoTotalNano));
     }
 }
