@@ -57,13 +57,16 @@ public class Main {
         // em.close();
         // emf.close();
 
+        
+
         CRUDCliente crudCliente = new CRUDCliente();
+
+
         //crudCliente.adicionarCliente("Maria Silva", "987.654.321-00", "Rua Y, 456", "9876-5432", "mariasilva@gmail.com");
 
-        crudCliente.buscarCliente("987.654.321-00");
+        crudCliente.buscarClientePorEmail("mariasilva@gmail.com");
         
         // crudCliente.atualizarCliente("Maria Silva", "987.654.321-00", "Rua Y, 456",
         // "9876-5432", "maria123@gmail.com");
-
     }
 }
