@@ -1,6 +1,5 @@
 import json
 
-
 def calcular_frete(peso, distancia):
     taxa_base = 5.0
     taxa_por_kg = 1.5
@@ -22,13 +21,25 @@ def calcular_frete_produto():
         for index, produto in enumerate(produtos):
             print(f"{index + 1}. Nome: {produto['Nome_Produto']}, Peso: {produto['Peso_Produto']} kg")
 
-        escolha = int(input("Escolha o número do produto para calcular o frete: ")) - 1
+        while True:
+            try:
+                escolha = int(input("Escolha o número do produto para calcular o frete: ")) - 1
+                if escolha >= 0 and escolha < len(produtos):
+                    break
+                else:
+                    print("Escolha inválida! Tente novamente.")
+            except ValueError:
+                print("Entrada inválida. Por favor, insira um número inteiro.")
 
-        if escolha < 0 or escolha >= len(produtos):
-            print("Escolha inválida!")
-            return
-
-        distancia = float(input("Informe a distância em km: "))
+        while True:
+            try:
+                distancia = float(input("Informe a distância em km: "))
+                if distancia > 0:
+                    break
+                else:
+                    print("Distância deve ser maior que 0 km. Tente novamente.")
+            except ValueError:
+                print("Entrada inválida. Por favor, insira um número válido para a distância.")
 
         peso = produtos[escolha]['Peso_Produto']
         frete = calcular_frete(peso, distancia)
@@ -39,3 +50,5 @@ def calcular_frete_produto():
         print("Nenhum produto cadastrado ainda.")
     except json.JSONDecodeError:
         print("Erro ao ler o arquivo JSON. O formato pode estar corrompido.")
+    except Exception as e:
+        print(f"Erro inesperado: {e}")

@@ -2,6 +2,7 @@ import json
 
 def editar_Produto(nome_produto, novo_nome=None, novo_valor=None, nova_quantidade=None):
     try:
+        # Abre o arquivo JSON e carrega os produtos
         with open("Json/produtos.json", "r") as arquivo_json:
             produtos = json.load(arquivo_json)
 
@@ -9,36 +10,39 @@ def editar_Produto(nome_produto, novo_nome=None, novo_valor=None, nova_quantidad
             print("Nenhum produto cadastrado para editar.")
             return
 
-        
-        print("Produtos cadastrados:")
-        for index, produto in enumerate(produtos):
-            print(f"{index + 1}. Nome: {produto['Nome_Produto']}, Valor: {produto['Valor_Produto']}, Quantidade: {produto['Quantidade_Produto']}")
+        # Procura o produto com o nome fornecido
+        produto_encontrado = None
+        for produto in produtos:
+            if produto['Nome_Produto'] == nome_produto:
+                produto_encontrado = produto
+                break
 
-        escolha = int(input("Escolha o número do produto que deseja editar: ")) - 1
-        
-        if escolha < 0 or escolha >= len(produtos):
-            print("Escolha inválida!")
+        if produto_encontrado is None:
+            print(f"Produto '{nome_produto}' não encontrado.")
             return
 
-        if produtos[escolha]['Nome_Produto'] != nome_produto:
-            print("O produto escolhido não corresponde ao nome fornecido.")
-            return
-
-        
+        # Permite editar os campos caso sejam fornecidos novos valores
         if novo_nome is not None:
-            produtos[escolha]['Nome_Produto'] = novo_nome
+            produto_encontrado['Nome_Produto'] = novo_nome
         if novo_valor is not None:
-            produtos[escolha]['Valor_Produto'] = novo_valor
+            produto_encontrado['Valor_Produto'] = novo_valor
         if nova_quantidade is not None:
-            produtos[escolha]['Quantidade_Produto'] = nova_quantidade
+            produto_encontrado['Quantidade_Produto'] = nova_quantidade
 
+        # Confirmação antes de salvar as alterações
+        confirmar = input(f"Você tem certeza que deseja salvar as alterações para o produto '{produto_encontrado['Nome_Produto']}'? (s/n): ").lower()
         
-        with open("Json/produtos.json", "w") as arquivo_json:
-            json.dump(produtos, arquivo_json, indent=4)
-
-        print("Produto atualizado com sucesso.")
+        if confirmar == 's':
+            # Salva as alterações no arquivo JSON
+            with open("Json/produtos.json", "w") as arquivo_json:
+                json.dump(produtos, arquivo_json, indent=4)
+            print("Produto atualizado com sucesso.")
+        else:
+            print("Alterações canceladas.")
 
     except FileNotFoundError:
         print("Nenhum produto cadastrado ainda.")
     except json.JSONDecodeError:
         print("Erro ao ler o arquivo JSON. O formato pode estar corrompido.")
+    except Exception as e:
+        print(f"Ocorreu um erro inesperado: {e}")

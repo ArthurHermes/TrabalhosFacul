@@ -18,16 +18,23 @@ def menu_principal():
     print("\033[35m7.\033[m Sair \n")
     print("\033[36m-\033[m" * 35)
 
-
 def casos():
-    escolha = int(input("\033[35mEscolha: \033[m"))
-    
+    try:
+        escolha = int(input("\033[35mEscolha: \033[m"))
+    except ValueError:
+        print("Entrada inválida! Por favor, insira um número válido.")
+        return
+
     match escolha:
         case 1:
             nome_produto = input("Nome do produto: ")
-            valor_produto = float(input("Valor do produto: "))
-            peso_produto = float(input("Peso do produto: "))
-            quantidade_produto = input("Quantidade do produto: ")
+            try:
+                valor_produto = float(input("Valor do produto: "))
+                peso_produto = float(input("Peso do produto: "))
+                quantidade_produto = int(input("Quantidade do produto: "))
+            except ValueError:
+                print("Valor, peso ou quantidade inválidos! Certifique-se de inserir números válidos.")
+                return
             
             cadastro_Produto(nome_produto, valor_produto, peso_produto, quantidade_produto)
         case 2:            
@@ -36,12 +43,16 @@ def casos():
             visualizar_Produtos()
             nome_produto = input("Nome do produto: ")
             novo_nome = input("Novo nome para o produto: ")
-            novo_valor = float(input("Novo Valor para o produto: "))
-            nova_quantidade = int("Nova quantidade")
+            try:
+                novo_valor = float(input("Novo Valor para o produto: "))
+                nova_quantidade = int(input("Nova quantidade: "))
+            except ValueError:
+                print("Valor ou quantidade inválidos! Certifique-se de inserir números válidos.")
+                return
             
             editar_Produtos(nome_produto, novo_nome, novo_valor, nova_quantidade)
         case 4:
-          calcular_frete_produto() 
+            calcular_frete_produto() 
         case 5:
             vender_Produto()
         case 6:

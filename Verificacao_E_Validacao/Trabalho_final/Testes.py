@@ -8,9 +8,8 @@ from Excluir_produtos import excluir_Produto
 from Venda_produtos import vender_Produto
 from Visualizar_produtos import visualizar_Produto
 
+
 class TestSistemaMercadinho(unittest.TestCase):
-    
-    
     
     def setUp(self):
         self.produtos_file = "Json/produtos.json"
@@ -20,69 +19,89 @@ class TestSistemaMercadinho(unittest.TestCase):
         with open(self.vendas_file, "w") as f:
             json.dump([], f)
 
-    
-    
-    
-    
     def tearDown(self):
         if os.path.exists(self.produtos_file):
             os.remove(self.produtos_file)
         if os.path.exists(self.vendas_file):
             os.remove(self.vendas_file)
+            
+            
 
-
-
-
-    def test_cadastro_produto(self):
-        cadastro_Produto("Produto A", 10.0, 1.0, 5)
+    # 1. Cadastro Produto
+    
+    # Cadastro de produto com exito
+    def teste_cadastro_produto_exito(self):
+        cadastro_Produto("Feijão", 10.0, 1.0, 30)
         with open(self.produtos_file, "r") as f:
             produtos = json.load(f)
         self.assertEqual(len(produtos), 1)
-        self.assertEqual(produtos[0]['Nome_Produto'], "Produto A")
+        self.assertEqual(produtos[0]['Nome_Produto'], "Feijão")
+
+    # Cadastro de produto com erro
+    def teste_cadastro_produto_erro(self):
+        cadastro_Produto("Arroz", 15.0, 1.0, 20)
+        try:
+            cadastro_Produto("Arroz", 15.0, 1.0, 20)
+            self.fail("Expected error for duplicate product")
+        except Exception as e:
+            self.assertEqual(str(e), "Erro: Produto 'Arroz' já está cadastrado")
 
 
 
-
-    def test_calcular_frete(self):
-        frete = calcular_frete(2.0, 10.0)
-        self.assertEqual(frete, 10.0)
-
-
-
-
-    def test_visualizar_produto(self):
-        cadastro_Produto("Produto A", 10.0, 1.0, 5)
-        cadastro_Produto("Produto B", 20.0, 2.0, 3)
+    # 2. Editar Produto
+    # Editar produto com exito
+    def teste_editar_produto_exito(self):
+        cadastro_Produto("Feijão", 10.0, 1.0, 30)
+        editar_Produto("Feijão", novo_nome="Feijão Premium", novo_valor=25.0, nova_quantidade=30)
         with open(self.produtos_file, "r") as f:
             produtos = json.load(f)
-        self.assertEqual(len(produtos), 2)
-        self.assertEqual(produtos[1]['Nome_Produto'], "Produto B")
+        self.assertEqual(produtos[0]['Nome_Produto'], "Feijão Premium")
+        self.assertEqual(produtos[0]['Valor_Produto'], 25.0)
+        self.assertEqual(produtos[0]['Quantidade_Produto'], 30)
+
+
+    # Editar produto com erro
+    def teste_editar_produto_erro(self):
+        try:
+            editar_Produto("Arroz", novo_nome="Arroz Orgânico", novo_valor=20.0, nova_quantidade=15)
+            self.fail("Expected error for non-existing product")
+        except Exception as e:
+            self.assertEqual(str(e), "Erro: Produto 'Arroz' não encontrado")
 
 
 
-
-    def test_editar_produto(self):
-
-        cadastro_Produto("Produto A", 10.0, 1.0, 5)
-        editar_Produto("Produto A", novo_nome="Novo Nome", novo_valor=15.0, nova_quantidade=10)
-        with open(self.produtos_file, "r") as f:
-            produtos = json.load(f)
-        self.assertEqual(produtos[0]['Nome_Produto'], "Novo Nome")
-        self.assertEqual(produtos[0]['Valor_Produto'], 15.0)
-
-
-
-
-    def test_excluir_produto(self):
-
-        cadastro_Produto("Produto A", 10.0, 1.0, 5)
-        excluir_Produto("Produto A")
+    # 3. Excluir Produto
+    # Excluir com produto com exito
+    def teste_excluir_produto_existente(self):
+        cadastro_Produto("Macarrão", 5.0, 1.0, 100)
+        excluir_Produto("Macarrão")
         with open(self.produtos_file, "r") as f:
             produtos = json.load(f)
         self.assertEqual(len(produtos), 0)
 
 
+    # Excluir produto com erro
+    def teste_excluir_produto_erro(self):
+        try:
+            excluir_Produto("Café")
+            with open(self.produtos_file, "r") as f:
+                produtos = json.load(f)
+            self.assertEqual(len(produtos), 0)
+        except Exception as e:
+            self.assertEqual(str(e), "Erro: Produto 'Café' não encontrado")
 
+
+
+    # 4. Calcular Frete
+    # Calular par aveereificar se o calculo esta certo
+    def teste_calcular_frete(self):
+        frete = calcular_frete(10.0, 10.0)
+        self.assertEqual(frete, 22.0)
+
+
+
+    # 5. Vender Produto
+    # Verificar se está diminuindo o valor da quantidade de itens do estoque
     def test_vender_produto(self):
         cadastro_Produto("Produto F", 10.0, 1.0, 5)
         vender_Produto("Produto F", 1)
@@ -91,5 +110,3 @@ class TestSistemaMercadinho(unittest.TestCase):
         self.assertEqual(produtos[0]['Quantidade_Produto'], 4)
 
 
-if __name__ == "__main__":
-    unittest.main()
