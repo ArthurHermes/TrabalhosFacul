@@ -1,9 +1,9 @@
 from Cadastro_produtos import cadastro_Produto
-from Visualizar_produtos import visualizar_Produtos
-from Editar_produtos import editar_Produtos
+from Visualizar_produtos import visualizar_Produto
+from Editar_produtos import editar_Produto
 from Calculo_frete import calcular_frete_produto
 from Venda_produtos import vender_Produto
-from Excluir_produtos import excluir_Produtos
+from Excluir_produtos import excluir_Produto
 
 def menu_principal():
     print("\n" + "\033[36m-\033[m" * 35)
@@ -38,9 +38,9 @@ def casos():
             
             cadastro_Produto(nome_produto, valor_produto, peso_produto, quantidade_produto)
         case 2:            
-            visualizar_Produtos()
+            visualizar_Produto()
         case 3:
-            visualizar_Produtos()
+            visualizar_Produto()
             nome_produto = input("Nome do produto: ")
             novo_nome = input("Novo nome para o produto: ")
             try:
@@ -50,13 +50,13 @@ def casos():
                 print("Valor ou quantidade inválidos! Certifique-se de inserir números válidos.")
                 return
             
-            editar_Produtos(nome_produto, novo_nome, novo_valor, nova_quantidade)
+            editar_Produto(nome_produto, novo_nome, novo_valor, nova_quantidade)
         case 4:
             calcular_frete_produto() 
         case 5:
             vender_Produto()
         case 6:
-            excluir_Produtos()
+            excluir_Produto()
         case 7:
             print("Saindo...")
             exit()
