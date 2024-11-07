@@ -44,7 +44,8 @@ class TestSistemaMercadinho(unittest.TestCase):
             cadastro_Produto("Arroz", 15.0, 1.0, 20)
             self.fail("Expected error for duplicate product")
         except Exception as e:
-            self.assertEqual(str(e), "Erro: Produto 'Arroz' já está cadastrado")
+            self.assertEqual(str(e), "Erro: Produto 'Arroz' já está cadastrado.")  # Incluindo o ponto final
+
 
 
 
@@ -70,6 +71,7 @@ class TestSistemaMercadinho(unittest.TestCase):
 
 
 
+
     # 3. Excluir Produto
     # Excluir com produto com exito
     def teste_excluir_produto_existente(self):
@@ -81,14 +83,13 @@ class TestSistemaMercadinho(unittest.TestCase):
 
 
     # Excluir produto com erro
-    def teste_excluir_produto_erro(self):
+    def teste_editar_produto_erro(self):
         try:
-            excluir_Produto("Café")
-            with open(self.produtos_file, "r") as f:
-                produtos = json.load(f)
-            self.assertEqual(len(produtos), 0)
+            editar_Produto("Arroz", novo_nome="Arroz Orgânico", novo_valor=20.0, nova_quantidade=15)
+            self.fail("Expected error for non-existing product")
         except Exception as e:
-            self.assertEqual(str(e), "Erro: Produto 'Café' não encontrado")
+            self.assertEqual(str(e), "Erro: Produto 'Arroz' não encontrado")
+
 
 
 
@@ -108,5 +109,7 @@ class TestSistemaMercadinho(unittest.TestCase):
         with open(self.produtos_file, "r") as f:
             produtos = json.load(f)
         self.assertEqual(produtos[0]['Quantidade_Produto'], 4)
+        
 
-
+if __name__ == "__main__":
+    unittest.main()
