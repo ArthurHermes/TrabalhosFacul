@@ -83,13 +83,13 @@ class TestSistemaMercadinho(unittest.TestCase):
 
 
     # Excluir produto com erro
+    # Editar produto com erro
     def teste_editar_produto_erro(self):
         try:
             editar_Produto("Arroz", novo_nome="Arroz Orgânico", novo_valor=20.0, nova_quantidade=15)
             self.fail("Expected error for non-existing product")
-        except Exception as e:
+        except ValueError as e:
             self.assertEqual(str(e), "Erro: Produto 'Arroz' não encontrado")
-
 
 
 
