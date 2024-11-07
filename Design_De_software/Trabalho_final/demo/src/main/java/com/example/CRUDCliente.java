@@ -1,13 +1,7 @@
 package com.example;
 
+import javax.persistence.*;
 import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.NoResultException;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
 
 public class CRUDCliente {
 
@@ -17,72 +11,70 @@ public class CRUDCliente {
         EntityTransaction transaction = null;
 
         try {
+            // Criando o EntityManager e iniciando a transação
             EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("persistencia_mercadinho");
             entityManager = emFactory.createEntityManager();
             transaction = entityManager.getTransaction();
             transaction.begin();
 
+            // Criando o cliente e persistindo
             Cliente cliente = new Cliente(nome, cpf, endereco, telefone, email);
             entityManager.persist(cliente);
-            entityManager.flush();
+
+            // Commit da transação para garantir que as alterações sejam salvas
             transaction.commit();
 
         } catch (RuntimeException exception) {
-            if (transaction != null) {
+            // Se ocorrer uma exceção, faz o rollback
+            if (transaction != null && transaction.isActive()) {
                 try {
                     transaction.rollback();
                 } catch (RuntimeException nestedException) {
+                    // Tratar erros de rollback, se necessário
                 }
             }
-            throw exception;
+            throw exception;  // Relançar a exceção para tratamento externo, caso necessário
         } finally {
+            // Fechar o EntityManager após a operação
             if (entityManager != null) {
                 entityManager.close();
             }
         }
     }
 
+    // Buscar Cliente
     public void buscarCliente(String cpf) {
         EntityManager entityManager = null;
-        EntityTransaction transaction = null;
-    
+
         try {
-    
+            // Criando o EntityManager
             EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("persistencia_mercadinho");
             entityManager = emFactory.createEntityManager();
-            transaction = entityManager.getTransaction();
-            transaction.begin();
-    
+
+            // Criando a consulta para buscar o cliente pelo CPF
             Query query = entityManager.createQuery("SELECT c FROM Cliente c WHERE c.cpf = :cpf");
-            query.setParameter("cpf", cpf);  // Certifique-se de passar o parâmetro cpf para a query
+            query.setParameter("cpf", cpf);
             List<Cliente> results = query.getResultList();
-    
-            for (Cliente c : results) {
-                System.out.println("Nome: " + c.getNome());
-                System.out.println("CPF: " + c.getCpf());
-                System.out.println("Endereço: " + c.getEndereco());
-                System.out.println("Telefone: " + c.getTelefone());
-                System.out.println("Email: " + c.getEmail());
-            }
-    
-            entityManager.flush();
-            transaction.commit();
-    
-        } catch (RuntimeException e) {
-            if (transaction != null) {
-                try {
-                    transaction.rollback();
-                } catch (RuntimeException nestedException) {
-                    // Tratar o erro de rollback, se necessário
+
+            // Exibindo os resultados
+            if (results.isEmpty()) {
+                System.out.println("Cliente não encontrado!");
+            } else {
+                for (Cliente c : results) {
+                    System.out.println("Nome: " + c.getNome());
+                    System.out.println("CPF: " + c.getCpf());
+                    System.out.println("Endereço: " + c.getEndereco());
+                    System.out.println("Telefone: " + c.getTelefone());
+                    System.out.println("Email: " + c.getEmail());
                 }
             }
-            throw e;  // Corrigido aqui para lançar a exceção corretamente
+        } catch (RuntimeException e) {
+            throw e;  // Relançar exceções para tratamento externo, se necessário
         } finally {
+            // Fechar o EntityManager após a operação
             if (entityManager != null) {
                 entityManager.close();
             }
         }
     }
-    
-
 }
