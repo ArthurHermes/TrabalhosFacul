@@ -58,11 +58,10 @@ public class Main {
         // emf.close();
 
         CRUDCliente crudCliente = new CRUDCliente();
-        // crudCliente.adicionarCliente("Maria Silva", "987.654.321-00", "Rua Y, 456",
-        // "9876-5432", "mariasilva@gmail.com");
+        //crudCliente.adicionarCliente("Maria Silva", "987.654.321-00", "Rua Y, 456", "9876-5432", "mariasilva@gmail.com");
 
-        Cliente c = crudCliente.buscarClientePorCpf("987.654.321-00");
-        System.out.println(c.getNome());
+        crudCliente.buscarCliente("987.654.321-00");
+        
         // crudCliente.atualizarCliente("Maria Silva", "987.654.321-00", "Rua Y, 456",
         // "9876-5432", "maria123@gmail.com");
 
