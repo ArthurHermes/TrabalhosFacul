@@ -35,35 +35,37 @@ public class CRUDCliente {
         }
     }
 
-    public Cliente buscarClientePorEmail(String email) {
+    public Cliente buscarClientePorEmail(String nome, S) {
         EntityManager entityManager = null;
+        EntityTransaction transaction = null;
 
-        try {
+        try{
             EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("persistencia_mercadinho");
             entityManager = emFactory.createEntityManager();
+            transaction = entityManager.getTransaction();
+            transaction.begin();
 
-            // Consultando cliente pelo email
-            String jpql = "SELECT c FROM Cliente c WHERE c.email = :email";
-            TypedQuery<Cliente> query = entityManager.createQuery(jpql, Cliente.class);
-            query.setParameter("email", email);
+            Query query = entityManager.createQuery("SELECT c FROM Cliente c WHERE c.email = :email");
+            List<Cliente> results = query.getResultList();
 
-            List<Cliente> clientes = query.getResultList(); // Usando getResultList() para evitar NoResultException
-
-            // Verifica se algum cliente foi encontrado
-            if (clientes.isEmpty()) {
-                return null; // Retorna null se nenhum cliente for encontrado
-            } else {
-                return clientes.get(0); // Retorna o primeiro cliente encontrado
+            for(Cliente c: results){
+                System.out.println("Usuarios    " + c.getNome());
             }
+            entityManager.flush();
+            transaction.commit();
 
-        } catch (Exception e) {
-            // Trata qualquer outro erro
-            e.printStackTrace();
-            return null;
-        } finally {
-            if (entityManager != null) {
+        }catch(RuntimeException exception){
+            if (transaction != null){
+                try{
+                    transaction.rollback();
+                }catch (RuntimeException nestedException){
+                }
+            }
+            throw exception;
+        }finally{
+            if (entityManager != null){
                 entityManager.close();
-            }
+            } 
         }
     }
 }
