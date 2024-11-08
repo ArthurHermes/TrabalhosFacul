@@ -38,7 +38,6 @@ public class CRUDCliente {
         }
     }
 
-    @SuppressWarnings("CallToPrintStackTrace")
     public Cliente buscarClientePorCpf(String cpf) {
         EntityManager entityManager = null;
         Cliente cliente = null;

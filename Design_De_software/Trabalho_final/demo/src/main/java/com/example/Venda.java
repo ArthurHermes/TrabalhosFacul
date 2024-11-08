@@ -13,7 +13,6 @@ import javax.persistence.Id;
 
 @Entity
 public class Venda {
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idVenda;
