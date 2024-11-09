@@ -41,8 +41,8 @@ public class Main {
         long timeTable2Insert = (endTime - startTime) / 1_000_000; // Convertendo para milissegundos
 
         // Relatório de inserção
-        System.out.println("Tempo total de inserção na Tabela 1 (Função Hash 1): " + timeTable1Insert + " ms");
-        System.out.println("Tempo total de inserção na Tabela 2 (Função Hash 2): " + timeTable2Insert + " ms");
+        System.out.println("Tempo total de inserção na Tabela 1 (Função Hash 1): " + timeTable1Insert + " ns");
+        System.out.println("Tempo total de inserção na Tabela 2 (Função Hash 2): " + timeTable2Insert + " ns");
 
         // Testar eficiência
         testEfficiency(table1, table2);
@@ -70,11 +70,11 @@ public class Main {
         // Relatório
         System.out.println("\nTabela 1 (Função Hash 1):");
         System.out.println("Número de colisões: " + table1.getCollisions());
-        System.out.println("Tempo total de busca: " + timeTable1Search + " ms");
+        System.out.println("Tempo total de busca: " + timeTable1Search + " ns");
 
         System.out.println("\nTabela 2 (Função Hash 2):");
         System.out.println("Número de colisões: " + table2.getCollisions());
-        System.out.println("Tempo total de busca: " + timeTable2Search + " ms");
+        System.out.println("Tempo total de busca: " + timeTable2Search + " ns");
 
         // Distribuição das colisões
         printCollisionDistribution(table1);
