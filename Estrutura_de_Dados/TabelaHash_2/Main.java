@@ -7,8 +7,8 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         String filePath = "Estrutura_de_Dados\\TabelaHash_2\\female_names.txt"; // Caminho para o seu arquivo CSV
-        HashTable table1 = new HashTableFunction1(5000);
-        HashTable table2 = new HashTableFunction2(5000);
+        HashTable table1 = new HashTableFunction1(5001);
+        HashTable table2 = new HashTableFunction2(5001);
         List<String> nomes = new ArrayList<>();
 
         // Ler o arquivo CSV e armazenar os nomes em um vetor de strings
@@ -30,7 +30,7 @@ public class Main {
             table1.insert(name);
         }
         endTime = System.nanoTime();
-        long timeTable1Insert = (endTime - startTime) / 1_000_000; // Convertendo para milissegundos
+        long timeTable1Insert = endTime - startTime; // Em nanosegundos
 
         // Inserção na tabela 2
         startTime = System.nanoTime();
@@ -38,7 +38,7 @@ public class Main {
             table2.insert(name);
         }
         endTime = System.nanoTime();
-        long timeTable2Insert = (endTime - startTime) / 1_000_000; // Convertendo para milissegundos
+        long timeTable2Insert = endTime - startTime; // Em nanosegundos
 
         // Relatório de inserção
         System.out.println("Tempo total de inserção na Tabela 1 (Função Hash 1): " + timeTable1Insert + " ns");
@@ -57,7 +57,7 @@ public class Main {
             if (name != null) table1.search(name);
         }
         endTime = System.nanoTime();
-        long timeTable1Search = (endTime - startTime) / 1_000_000; // Convertendo para milissegundos
+        long timeTable1Search = endTime - startTime; // Em nanosegundos
 
         // Tempo de busca na tabela 2
         startTime = System.nanoTime();
@@ -65,7 +65,7 @@ public class Main {
             if (name != null) table2.search(name);
         }
         endTime = System.nanoTime();
-        long timeTable2Search = (endTime - startTime) / 1_000_000; // Convertendo para milissegundos
+        long timeTable2Search = endTime - startTime; // Em nanosegundos
 
         // Relatório
         System.out.println("\nTabela 1 (Função Hash 1):");
