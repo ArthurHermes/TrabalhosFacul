@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        String filePath = "Estrutura_de_Dados\\TabelaHash_2\\names_5000.csv"; // Caminho para o seu arquivo CSV
+        String filePath = "Estrutura_de_Dados\\TabelaHash_2\\female_names.txt"; // Caminho para o seu arquivo CSV
         HashTable table1 = new HashTableFunction1(5000);
         HashTable table2 = new HashTableFunction2(5000);
         List<String> nomes = new ArrayList<>();
