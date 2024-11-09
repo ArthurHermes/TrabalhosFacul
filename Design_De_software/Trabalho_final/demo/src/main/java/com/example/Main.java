@@ -14,12 +14,17 @@ public class Main {
     
 
 
-        CRUDCliente cliente = new CRUDCliente();
+        // CRUDCliente cliente = new CRUDCliente();
 
-        cliente.adicionarCliente("Teste", "123.456.789-00", "Rua A, 222", "41 9 9999-9999", "Teste@gmail.com");
+        // cliente.adicionarCliente("Teste", "123.456.789-00", "Rua A, 222", "41 9 9999-9999", "Teste@gmail.com");
         
 
-        cliente.buscarClientePorCpf("123.456.789-00");
+        // cliente.buscarClientePorCpf("123.456.789-00");
 
+        CRUDFuncionario funcionario = new CRUDFuncionario();
+
+        //funcionario.adicionarfuncionario("Júlio Santos","398.751.218-37","Analista de Sistemas",5200.0,"09:00 - 18:00","(11) 98765-4321","julio.santos@email.com");
+
+        funcionario.buscarFuncionarioPorCpf("398.751.218-37");
     }
 }

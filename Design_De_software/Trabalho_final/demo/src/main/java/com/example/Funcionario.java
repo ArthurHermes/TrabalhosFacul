@@ -15,6 +15,7 @@ public class Funcionario {
 
     //Variaveis
     private String nome;
+    private String cpf;
     private String cargo;
     private double salario;
     private String horarioTrabalho;
@@ -27,8 +28,9 @@ public class Funcionario {
     }
 
     //Construtor
-    public Funcionario(String nome, String cargo, double salario, String horarioTrabalho, String telefone, String email){
+    public Funcionario(String nome, String cpf, String cargo, double salario, String horarioTrabalho, String telefone, String email){
         this.nome = nome;
+        this.cpf = cpf;
         this.cargo = cargo;
         this.salario = salario;
         this.horarioTrabalho = horarioTrabalho;
@@ -37,8 +39,17 @@ public class Funcionario {
     }
 
     //Getters
+
+    public Long getIdFuncionario(){
+        return idFuncionario;
+    }
+
     public String getNome() {
         return nome;
+    }
+
+    public String getCpf() {
+        return cpf;
     }
 
     public String getCargo() {
@@ -66,6 +77,12 @@ public class Funcionario {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+    public void setCpf(String cpf){
+        this.cpf = cpf;
+    }
+
+
 
     public void setCargo(String cargo) {
         this.cargo = cargo;
