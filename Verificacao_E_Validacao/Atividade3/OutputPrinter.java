@@ -1,4 +1,4 @@
-package Verificacao_E_Validacao.Atividade7.Atividade3;
+package Verificacao_E_Validacao.Atividade3;
 public class OutputPrinter {
     public void printInsertionTimes(long insertionTime1, long insertionTime2) {
         System.out.println("Tempo total de inserção na Tabela 1 (Função Hash 1): " + insertionTime1 + " ns");

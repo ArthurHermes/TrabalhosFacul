@@ -1,4 +1,4 @@
-package Verificacao_E_Validacao.Atividade7.Atividade3;
+package Verificacao_E_Validacao.Atividade3;
 class HashTableFunction2 extends HashTable {
     // Construtor que recebe o tamanho da tabela e chama o construtor da classe HashTable
     public HashTableFunction2(int size) {

@@ -1,4 +1,4 @@
-package Verificacao_E_Validacao.Atividade7.Atividade3;
+package Verificacao_E_Validacao.Atividade3;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;

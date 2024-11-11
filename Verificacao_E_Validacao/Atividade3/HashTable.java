@@ -1,4 +1,4 @@
-package Verificacao_E_Validacao.Atividade7.Atividade3;
+package Verificacao_E_Validacao.Atividade3;
 import java.util.Arrays;
 
 abstract class HashTable {
