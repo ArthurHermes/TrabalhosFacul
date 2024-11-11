@@ -274,7 +274,7 @@
 //     }
 // }
 
-            //11. Exemplo de Insertion Sort com contagem de comparações e trocas
+            //11. Exemplo de Insertion Sort com contagem de comparações e trocas--
 
         // public static int[] insertionSort(int[] arr) {
         //     int comparacoes = 0;
