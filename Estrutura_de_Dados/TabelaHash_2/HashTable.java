@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 abstract class HashTable {
     protected String[] table;
     protected int size;
