@@ -20,26 +20,26 @@
 //         System.out.println(); // Pula uma linha após imprimir todo o array.
 //     }
 
-//     // 1. Método que implementa o algoritmo de ordenação *Bubble Sort* padrão (sem otimização).
-//     public void ordenar() {
-//         int aux; // Variável auxiliar para armazenar temporariamente valores durante a troca.
-//         int comparacoes = 0;
-//         int trocar = 0;
+    // 1. Método que implementa o algoritmo de ordenação *Bubble Sort* padrão (sem otimização).
+    // public void ordenar() {
+    //     int aux; // Variável auxiliar para armazenar temporariamente valores durante a troca.
+    //     int comparacoes = 0;
+    //     int trocar = 0;
         
-//         for (int i = 0; i < vet.length - 1; i++) {
-//             for (int j = 0; j < vet.length - 1 - i; j++) {
-//                 comparacoes++;
-//                 if (vet[j] > vet[j + 1]) {
-//                     aux = vet[j];
-//                     vet[j] = vet[j + 1];
-//                     vet[j + 1] = aux;
-//                     trocar++;
-//                 }
-//             }
-//         }
-//         System.out.println("Comparacoes: " + comparacoes);
-//         System.out.println("Trocas: " + trocar);
-//     }
+    //     for (int i = 0; i < vet.length - 1; i++) {
+    //         for (int j = 0; j < vet.length - 1 - i; j++) {
+    //             comparacoes++;
+    //             if (vet[j] > vet[j + 1]) {
+    //                 aux = vet[j];
+    //                 vet[j] = vet[j + 1];
+    //                 vet[j + 1] = aux;
+    //                 trocar++;
+    //             }
+    //         }
+    //     }
+    //     System.out.println("Comparacoes: " + comparacoes);
+    //     System.out.println("Trocas: " + trocar);
+    // }
     
 //     // 2. Bubble Sort com Early Termination (término antecipado)
 //     public void ordenarComEarlyTermination() {

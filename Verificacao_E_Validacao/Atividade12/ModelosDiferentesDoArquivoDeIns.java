@@ -274,3 +274,31 @@
 //     }
 // }
 
+            //11. Exemplo de Insertion Sort com contagem de comparações e trocas
+
+        // public static int[] insertionSort(int[] arr) {
+        //     int comparacoes = 0;
+        //     int trocas = 0;
+
+        //     for (int i = 1; i < arr.length; i++) {
+        //         int j = i;
+        //         while ((j > 0) && (arr[j - 1] > arr[j])) {
+        //             comparacoes++;  // Conta a comparação na condição do while
+        //             int tmp = arr[j];
+        //             arr[j] = arr[j - 1];
+        //             arr[j - 1] = tmp;
+        //             trocas++;  // Conta uma troca
+        //             j--;
+        //         }
+        //         // Incrementa comparações para o caso em que a condição do while é falsa
+        //         if (j > 0) {
+        //             comparacoes++;
+        //         }
+        //     }
+
+        //     System.out.println("Total de comparações: " + comparacoes);
+        //     System.out.println("Total de trocas: " + trocas);
+            
+        //     return arr;
+        // }
+
