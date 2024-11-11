@@ -11,7 +11,7 @@ public class CSVReader {
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             while ((line = br.readLine()) != null) {
-                names.add(line.trim()); // Adiciona o nome lido à lista
+                names.add(line.trim());
             }
         } catch (IOException e) {
             System.err.println("Erro ao ler o arquivo: " + e.getMessage());

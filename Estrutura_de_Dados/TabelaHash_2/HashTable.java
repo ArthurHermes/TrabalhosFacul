@@ -3,41 +3,40 @@ import java.util.Arrays;
 abstract class HashTable {
     protected String[] table;
     protected int size;
-    protected int count; // Número de elementos
+    protected int count;
     protected int collisions;
 
     public HashTable(int size) {
         this.size = size;
         this.table = new String[size];
         this.collisions = 0;
-        this.count = 0; // Inicializa o contador de elementos
+        this.count = 0;
     }
 
     protected abstract int hashFunction(String key);
 
     public void insert(String key) {
-        if (count >= size * 0.7) { // Rehash quando 70% estiver ocupado
+        if (count >= size * 0.7) {
             rehash();
         }
-        
+
         int index = hashFunction(key);
         int originalIndex = index;
 
-        // Verificar se há colisão antes do loop
         if (table[index] != null) {
-            collisions++; // Contar colisão antes de começar a resolver
-            index = (index + 1) % size; // Endereçamento aberto
+            collisions++;
+            index = (index + 1) % size;
             while (table[index] != null) {
                 collisions++;
-                index = (index + 1) % size; // Continuar buscando
+                index = (index + 1) % size;
                 if (index == originalIndex) {
                     throw new RuntimeException("Table is full");
                 }
             }
         }
 
-        table[index] = key; // Inserir a chave no espaço vazio encontrado
-        count++; // Incrementar o contador de elementos
+        table[index] = key;
+        count++;
     }
 
     public boolean search(String key) {
@@ -58,11 +57,10 @@ abstract class HashTable {
 
     protected void rehash() {
         String[] oldTable = table;
-        size *= 2; // Dobra o tamanho
+        size *= 2;
         table = new String[size];
-        count = 0; // Reseta o contador de elementos
+        count = 0;
 
-        // Reinserir os elementos da tabela antiga
         for (String key : oldTable) {
             if (key != null) {
                 insert(key);

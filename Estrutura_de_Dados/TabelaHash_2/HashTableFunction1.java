@@ -5,6 +5,6 @@ class HashTableFunction1 extends HashTable {
 
     @Override
     protected int hashFunction(String key) {
-        return key.length() % size; // Função hash baseada no comprimento da chave
+        return key.length() % size; 
     }
 }
