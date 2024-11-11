@@ -28,7 +28,6 @@ public class LerCSV {
             System.out.println(e);
         }
 
-        // Convertendo a lista para um array de inteiros
         return numeros.stream().mapToInt(i -> i).toArray();
     }
 }
