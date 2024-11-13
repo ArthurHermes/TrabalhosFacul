@@ -1,14 +1,11 @@
 package com.example;
 
 import java.sql.Date;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import java.util.List;
+import javax.persistence.*;
 
 @Entity
 public class Produto {
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idProduto;
@@ -19,6 +16,18 @@ public class Produto {
     private int quantidadeEstoque;
     private String categoria;
     private Date dataValidade;
+
+    @ManyToMany(mappedBy = "produtos")
+    private List<Venda> vendas;
+
+    @ManyToMany
+    @JoinTable(name = "produto_fornecedor",
+               joinColumns = @JoinColumn(name = "produto_id"),
+               inverseJoinColumns = @JoinColumn(name = "fornecedor_id"))
+    private List<Fornecedor> fornecedores;
+
+    // Construtores, getters e setters
+
 
     // Construtor vazio (obrigatório para JPA)
     public Produto() {}

@@ -12,7 +12,7 @@ import java.sql.Date;
 public class CRUDVenda {
     private final EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("persistencia_mercadinho");
 
-    public void adicionarVenda(String cliente, List<String> produto, double totalVenda, Date dataVenda, String formaPagamento, Venda.StatusVenda status) {
+    public void adicionarVenda(Cliente cliente, List<Produto> produtos, double totalVenda, Date dataVenda, String formaPagamento, Venda.StatusVenda status) {
         EntityManager entityManager = null;
         EntityTransaction transaction = null;
 
@@ -21,7 +21,7 @@ public class CRUDVenda {
             transaction = entityManager.getTransaction();
             transaction.begin();
 
-            Venda venda = new Venda(cliente, produto, totalVenda,dataVenda, formaPagamento, status);
+            Venda venda = new Venda(cliente, produtos, totalVenda, dataVenda, formaPagamento, status);
             entityManager.persist(venda);
             transaction.commit();
 
@@ -51,7 +51,7 @@ public class CRUDVenda {
 
             if (!results.isEmpty()) {
                 venda = results.get(0);
-                System.out.println("Venda encontrada: \n" + venda.getIdVenda() + ": " + venda.getCliente() + " ; " + venda.getProduto() + " ; " + venda.getTotalVenda() + " ; " + venda.getFormaPagamento() + " ; " + venda.getStatus());
+                System.out.println("Venda encontrada: \n" + venda.getIdVenda() + ": " + venda.getCliente().getNome() + " ; " + venda.getProdutos() + " ; " + venda.getTotalVenda() + " ; " + venda.getFormaPagamento() + " ; " + venda.getStatus());
             } else {
                 System.out.println("Nenhuma venda encontrada com o ID: " + idVenda);
             }
@@ -64,7 +64,7 @@ public class CRUDVenda {
         return venda;
     }
 
-    public void editarVendaPorNomeCliente(Long idVenda, String cliente) {
+    public void editarVendaPorId(Long idVenda, Cliente cliente) {
         EntityManager entityManager = null;
         EntityTransaction transaction = null;
 
@@ -93,7 +93,7 @@ public class CRUDVenda {
         }
     }
 
-    public void excluirVendaPorCliente(String cliente) {
+    public void excluirVendaPorCliente(Cliente cliente) {
         EntityManager entityManager = null;
         EntityTransaction transaction = null;
 
@@ -112,7 +112,7 @@ public class CRUDVenda {
                 }
                 transaction.commit();
             } else {
-                System.out.println("Nenhuma venda encontrada com o cliente: " + cliente);
+                System.out.println("Nenhuma venda encontrada com o cliente: " + cliente.getNome());
             }
         } catch (RuntimeException exception) {
             if (transaction != null && transaction.isActive()) {

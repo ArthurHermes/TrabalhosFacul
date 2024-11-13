@@ -3,13 +3,7 @@ package com.example;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Venda {
@@ -17,10 +11,16 @@ public class Venda {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idVenda;
 
-    private String cliente;
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
+    private Cliente cliente;
     
-    @ElementCollection(fetch = FetchType.LAZY)
-    private List<String> produto = new ArrayList<>();
+    @ManyToMany
+    @JoinTable(name = "venda_produto",
+               joinColumns = @JoinColumn(name = "venda_id"),
+               inverseJoinColumns = @JoinColumn(name = "produto_id"))
+    private List<Produto> produtos = new ArrayList<>();
+
     private double totalVenda;
     private Date dataVenda;
     private String formaPagamento;
@@ -39,9 +39,9 @@ public class Venda {
     }
 
     // Construtor com parâmetros
-    public Venda(String cliente, List<String> produto, double totalVenda, Date dataVenda, String formaPagamento, StatusVenda status ) {
+    public Venda(Cliente cliente, List<Produto> produtos, double totalVenda, Date dataVenda, String formaPagamento, StatusVenda status) {
         this.cliente = cliente;
-        this.produto = produto;
+        this.produtos = produtos;
         this.totalVenda = totalVenda;
         this.dataVenda = dataVenda;
         this.formaPagamento = formaPagamento;
@@ -53,20 +53,24 @@ public class Venda {
         return idVenda;
     }
 
-    public String getCliente() {
+    public void setIdVenda(Long idVenda) {
+        this.idVenda = idVenda;
+    }
+
+    public Cliente getCliente() {
         return cliente;
     }
 
-    public void setCliente(String cliente) {
+    public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
 
-    public List<String> getProduto() {
-        return produto;
+    public List<Produto> getProdutos() {
+        return produtos;
     }
 
-    public void setProduto(List<String> produto) {
-        this.produto = produto;
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
     }
 
     public double getTotalVenda() {

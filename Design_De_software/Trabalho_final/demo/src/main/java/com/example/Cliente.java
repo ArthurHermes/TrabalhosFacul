@@ -1,13 +1,10 @@
 package com.example;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import java.util.List;
+import javax.persistence.*;
 
 @Entity
 public class Cliente {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCliente;
@@ -17,6 +14,18 @@ public class Cliente {
     private String endereco;
     private String telefone;
     private String email;
+
+    @OneToMany(mappedBy = "cliente")
+    private List<Venda> vendas;
+
+    @ManyToMany
+    @JoinTable(name = "cliente_funcionario",
+               joinColumns = @JoinColumn(name = "cliente_id"),
+               inverseJoinColumns = @JoinColumn(name = "funcionario_id"))
+    private List<Funcionario> funcionarios;
+
+    // Construtores, getters e setters
+
 
     // Construtor vazio (necessário para JPA)
     public Cliente() {

@@ -1,14 +1,10 @@
 package com.example;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
+import java.util.List;
+import javax.persistence.*;
 
 @Entity
 public class Fornecedor {
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idFornecedor;
@@ -18,6 +14,11 @@ public class Fornecedor {
     private String telefone;
     private String email;
     private String produtosFornecidos;
+
+    @ManyToMany(mappedBy = "fornecedores")
+    private List<Produto> produtos;
+
+    // Construtores, getters e setters
 
     // Construtor vazio(obrigatório)
     public Fornecedor() {}
