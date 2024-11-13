@@ -33,6 +33,10 @@ public class Fornecedor {
 
     // Getters e Setters
 
+    public Long getIdFornecedor() {
+        return idFornecedor;
+    }
+
     public String getNome() {
         return nome;
     }
