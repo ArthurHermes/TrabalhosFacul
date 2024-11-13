@@ -48,6 +48,9 @@ public class Venda {
     }
 
     // Getters e Setters
+    public Long getIdVenda() {
+        return idVenda;
+    }
 
     public String getCliente() {
         return cliente;
