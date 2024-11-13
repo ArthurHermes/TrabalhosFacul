@@ -1,12 +1,10 @@
 package com.example;
 
 import java.sql.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
 
 @Entity
 public class Produto {
@@ -22,21 +20,26 @@ public class Produto {
     private String categoria;
     private Date dataValidade;
 
-    //Construtor vazio(obrigatorio)
-    public Produto(){}
+    // Construtor vazio (obrigatório para JPA)
+    public Produto() {}
 
-    //Construtor
-    public Produto(String nome, String descricao, double preco, int quantidadeEstoque, String categoria, Date dataValidade){
+    // Construtor com parâmetros
+    public Produto(String nome, String descricao, double preco, int quantidadeEstoque, String categoria, Date dataValidade) {
         this.nome = nome;
         this.descricao = descricao;
         this.preco = preco;
         this.quantidadeEstoque = quantidadeEstoque;
         this.categoria = categoria;
         this.dataValidade = dataValidade;
-
     }
+    
 
     //Getters
+
+    public Long getIdProduto() {
+        return idProduto;
+    }
+
     public String getNome() {
         return nome;
     }
