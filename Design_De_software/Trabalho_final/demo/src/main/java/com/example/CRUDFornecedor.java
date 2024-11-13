@@ -97,14 +97,19 @@ public class CRUDFornecedor {
     public void excluirFornecedorPorNome(String nome) {
         EntityManager entityManager = null;
         EntityTransaction transaction = null;
-
+    
         try {
             entityManager = emFactory.createEntityManager();
             transaction = entityManager.getTransaction();
             transaction.begin();
-
-            Fornecedor fornecedor = buscaFornecedorPorNome(nome);
-            if (fornecedor != null) {
+    
+            // Busca o fornecedor diretamente no contexto atual do EntityManager
+            TypedQuery<Fornecedor> query = entityManager.createQuery("SELECT f FROM Fornecedor f WHERE f.nome = :nome", Fornecedor.class);
+            query.setParameter("nome", nome);
+            List<Fornecedor> results = query.getResultList();
+    
+            if (!results.isEmpty()) {
+                Fornecedor fornecedor = results.get(0);
                 entityManager.remove(fornecedor);
                 transaction.commit();
             } else {
@@ -121,7 +126,7 @@ public class CRUDFornecedor {
             }
         }
     }
-
+    
 
 
 }
