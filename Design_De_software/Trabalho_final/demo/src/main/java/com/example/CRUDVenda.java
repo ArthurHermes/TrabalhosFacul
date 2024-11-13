@@ -7,11 +7,12 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
+import java.sql.Date;
 
 public class CRUDVenda {
     private final EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("persistencia_mercadinho");
 
-    public void adicionarVenda(String cliente, List<String> produto, double totalVenda, String formaPagamento, Venda.StatusVenda status) {
+    public void adicionarVenda(String cliente, List<String> produto, double totalVenda, Date dataVenda, String formaPagamento, Venda.StatusVenda status) {
         EntityManager entityManager = null;
         EntityTransaction transaction = null;
 
@@ -20,7 +21,7 @@ public class CRUDVenda {
             transaction = entityManager.getTransaction();
             transaction.begin();
 
-            Venda venda = new Venda(cliente, produto, totalVenda, formaPagamento, status);
+            Venda venda = new Venda(cliente, produto, totalVenda,dataVenda, formaPagamento, status);
             entityManager.persist(venda);
             transaction.commit();
 

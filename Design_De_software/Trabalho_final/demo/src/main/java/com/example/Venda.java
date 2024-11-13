@@ -39,10 +39,11 @@ public class Venda {
     }
 
     // Construtor com parâmetros
-    public Venda(String cliente, List<String> produto, double totalVenda, String formaPagamento, StatusVenda status) {
+    public Venda(String cliente, List<String> produto, double totalVenda, Date dataVenda, String formaPagamento, StatusVenda status ) {
         this.cliente = cliente;
         this.produto = produto;
         this.totalVenda = totalVenda;
+        this.dataVenda = dataVenda;
         this.formaPagamento = formaPagamento;
         this.status = status;
     }
