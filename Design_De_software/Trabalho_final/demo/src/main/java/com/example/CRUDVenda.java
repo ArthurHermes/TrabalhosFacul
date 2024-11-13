@@ -1,5 +1,6 @@
 package com.example;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -7,12 +8,11 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
-import java.sql.Date;
 
 public class CRUDVenda {
     private final EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("persistencia_mercadinho");
 
-    public void adicionarVenda(String cliente, List<String> produto, double totalVenda, Date dataVenda, String formaPagamento, Venda.StatusVenda status) {
+    public void adicionarVenda(String cliente, List<String> produto, double totalVenda, String formaPagamento, Venda.StatusVenda status, Date dataVenda) {
         EntityManager entityManager = null;
         EntityTransaction transaction = null;
 
