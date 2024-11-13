@@ -18,9 +18,9 @@ public class Main {
 
         // CRUDS dos cliente
 
-        // CRUDCliente cliente = new CRUDCliente();
+        //CRUDCliente cliente = new CRUDCliente();
 
-        // cliente.adicionarCliente("Teste", "123.456.789-00", "Rua A, 222", "41 9 9999-9999", "Teste@gmail.com");
+        //cliente.adicionarCliente("Teste", "123.456.789-00", "Rua A, 222", "41 9 9999-9999", "Teste@gmail.com");
         
 
         // cliente.buscarClientePorCpf("123.456.789-00");
@@ -30,7 +30,7 @@ public class Main {
 
 
 
-        // CRUDS do funcionario
+        //CRUDS do funcionario
 
         //CRUDFuncionario funcionario = new CRUDFuncionario();
 
@@ -74,13 +74,24 @@ public class Main {
 
 
 
-        //CRUDVenda venda = new CRUDVenda();
+        // CRUDVenda venda = new CRUDVenda();
 
-        // SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        // java.util.Date utilDate = sdf.parse("30/12/2025");
-        // java.sql.Date dataVenda = new java.sql.Date(utilDate.getTime());
-        // venda.adicionarVenda("123.456.789-00", Arrays.asList("Smartphone X10", "Fone de Ouvido Bluetooth", "Carregador Rápido"), 1999.99, "Dinheiro", Venda.StatusVenda.PENDENTE, dataVenda);
-        // venda.buscarVendaPorCpfCliente("123.456.789-00");
+        // Cliente clientebusca = cliente.buscarClientePorCpf("123.456.789-00");
+
+
+        // Setting up the date for dataVenda2
+        // SimpleDateFormat sdf2 = new SimpleDateFormat("dd/MM/yyyy");
+        // java.util.Date utilDate2 = sdf2.parse("30/12/2025");
+        // java.sql.Date dataVenda2 = new java.sql.Date(utilDate2.getTime());
+
+        // Creating the list of products
+        // List<Produto> produtos = Arrays.asList(produto.buscarProdutoPorNome("Smartphone X10"));
+
+        // Adding the sale
+        // venda.adicionarVenda(clientebusca, produtos, 1999.99, "Dinheiro", Venda.StatusVenda.PENDENTE, dataVenda2);
+
+        
+        //venda.buscarVendaPorCpfCliente("123.456.789-00");
 
         //venda.editarVendaPorNomeCliente(1l, "123.456.789-00");
 

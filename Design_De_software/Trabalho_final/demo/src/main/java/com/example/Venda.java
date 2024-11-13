@@ -3,7 +3,15 @@ package com.example;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.*;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Venda {
@@ -39,7 +47,7 @@ public class Venda {
     }
 
     // Construtor com parâmetros
-    public Venda(Cliente cliente, List<Produto> produtos, double totalVenda, Date dataVenda, String formaPagamento, StatusVenda status) {
+    public Venda(Cliente cliente, List<Produto> produtos, double totalVenda, String formaPagamento, StatusVenda status, Date dataVenda) {
         this.cliente = cliente;
         this.produtos = produtos;
         this.totalVenda = totalVenda;
